@@ -2,7 +2,6 @@ import 'package:barber_shop/app/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorWidget extends StatelessWidget {
-
   final PageController controller;
   
   const NavigatorWidget({super.key, required this.controller});
