@@ -7,10 +7,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Function()? onBackPressed; // Nova função
 
   const AppBarWidget({
-    Key? key,
+    super.key,
     required this.title,
     this.onBackPressed, // Adicione a nova função
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

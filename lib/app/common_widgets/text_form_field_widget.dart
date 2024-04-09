@@ -13,7 +13,7 @@ class WidgetFormField extends StatelessWidget {
   final TextInputType? keyboardType;
 
   const WidgetFormField({
-    Key? key,
+    super.key,
     this.prefix,
     this.suffix,
     this.keyboardType,
@@ -22,7 +22,7 @@ class WidgetFormField extends StatelessWidget {
     required this.value,
     this.obscure,
     this.validator,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

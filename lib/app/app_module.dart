@@ -3,6 +3,7 @@ import 'package:http/http.dart';
 
 import 'external/http/http_client.dart';
 import 'external/http/http_client_impl.dart';
+import 'modules/splash/splash_page.dart';
 import 'routes/app_routes.dart';
 
 class AppModule extends Module {
