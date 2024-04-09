@@ -5,11 +5,11 @@ import 'presentation/pages/home_page.dart';
 
 class HomeModule extends Module{
   @override
-  void binds(Injector i) {
+  void binds(i) {
   }
 
   @override
-  void routes(RouteManager r) {
+  void routes(r) {
     r.child(AppRoutes.root, child: (context) => const HomePage());
   }
 }

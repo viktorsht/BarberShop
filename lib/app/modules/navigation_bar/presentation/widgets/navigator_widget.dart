@@ -3,25 +3,22 @@ import 'package:flutter/material.dart';
 
 class NavigatorWidget extends StatelessWidget {
 
-  final PageController pageController;
+  final PageController controller;
   
-  const NavigatorWidget({
-    super.key, 
-    required this.pageController
-  });
+  const NavigatorWidget({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: pageController,
+      listenable: controller,
       builder: (context, child) => Theme(
         data: Theme.of(context).copyWith(
           canvasColor: AppColors.background
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: pageController.page?.round() ?? 0,
-          onTap: (index) => pageController.jumpToPage(index),
+          currentIndex: controller.page?.round() ?? 0,
+          onTap: (index) => controller.jumpToPage(index),
           selectedItemColor: AppColors.secundaryColor,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),

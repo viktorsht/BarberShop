@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
+import '../../../../utils/date_format_converter.dart';
 
 class DateWidget extends StatelessWidget {
   final String date;
@@ -8,16 +9,11 @@ class DateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    DateTime parsedDate = DateFormat('dd/MM/yyyy').parse(date);
-    String formattedDate = '${parsedDate.day}';
-    String monthName = DateFormat('MMMM').format(parsedDate);
 
     return Column(
-      //mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          formattedDate,
+          formattedDate(date),
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -25,7 +21,7 @@ class DateWidget extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          monthName,
+          monthName(date),
           style: const TextStyle(
             fontSize: 18,
           ),
