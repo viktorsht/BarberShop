@@ -20,6 +20,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Olá, Usuário'),
             Text('Segunda, 08 abril de 2024', style: TextStyle(fontSize: 12),),
@@ -28,6 +30,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: const SingleChildScrollView(
         child: Column(
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Próximo agendamento'),
 
