@@ -1,6 +1,7 @@
 import 'package:barber_shop/app/common_widgets/card_schedule.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/list_available_barber_shops.dart';
 import '../widgets/list_available_cities.dart';
 
 
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
             ListAvailableCities(list: ['inhuma', 'Picos', 'inhuma', 'inhuma','inhuma',],),
             SizedBox(height: 16,),
             Text('Barbearias', style: TextStyle(fontSize: 18),),
-
+            ListAvailableBarberShop(list: ['barber shop', "barbearia visual", "zé bola",'barber shop', "barbearia visual", "zé bola", ],)
           ],
         ),
       ),
