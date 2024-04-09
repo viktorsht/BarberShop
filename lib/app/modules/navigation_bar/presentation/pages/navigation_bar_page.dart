@@ -29,7 +29,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: const Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
             Text('Segunda, 08 abril de 2024', style: TextStyle(fontSize: 12),),
           ],
         ),
-      ),
+      ),*/
       body: ListenableBuilder(
         listenable: pageController,
         builder: (context, child) => Center(

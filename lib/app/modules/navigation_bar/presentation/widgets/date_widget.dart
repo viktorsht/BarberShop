@@ -9,7 +9,6 @@ class DateWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Text(
@@ -19,7 +18,7 @@ class DateWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(height: 8),
+        //const SizedBox(height: 8),
         Text(
           monthName(date),
           style: const TextStyle(

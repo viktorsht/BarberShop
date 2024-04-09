@@ -36,7 +36,7 @@ class CardSchedule extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Agendamento nº $numSchedule', style: const TextStyle(fontSize: 14),),
+              Text('Agendamento nº $numSchedule', style: const TextStyle(fontSize: 16),),
               Text(service, style: const TextStyle(fontSize: 14),),
               Row(
                 children: [
