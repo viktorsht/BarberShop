@@ -7,6 +7,7 @@ class AppRoutes{
   static String calendar = '/calendar';
   static String authModule = '/auth';
   static String homeModule = '/home';
+  static String navigationModule = '/navigation';
   static String scheduleModule = '/scheduleModule';
   static String myScheduleModule = '/myScheduleModule';
 }

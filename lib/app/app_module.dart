@@ -1,3 +1,4 @@
+import 'package:barber_shop/app/modules/navigation_bar/navigation_bar_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart';
 
@@ -20,6 +21,7 @@ class AppModule extends Module {
     r.child(AppRoutes.root, child: (context) => const SplashPage());
     //r.module(AppRoutes.authModule, module: AuthModule());
     r.module(AppRoutes.homeModule, module: HomeModule());
+    r.module(AppRoutes.navigationModule, module: NavigationBarModule());
     //r.module(AppRoutes.scheduleModule, module: ScheduleModule());
     //r.module(AppRoutes.myScheduleModule, module: MyScheduleModule());
   }
