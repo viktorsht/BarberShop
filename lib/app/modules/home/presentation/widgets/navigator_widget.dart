@@ -22,8 +22,8 @@ class NavigatorWidget extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           currentIndex: pageController.page?.round() ?? 0,
           onTap: (index) => pageController.jumpToPage(index),
-          selectedItemColor: AppColors.background,
-          unselectedItemColor: AppColors.background,
+          selectedItemColor: AppColors.secundaryColor,
+          //unselectedItemColor: AppColors.background,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.schedule),label: 'Minha Agenda'),

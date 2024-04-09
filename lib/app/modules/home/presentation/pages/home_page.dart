@@ -21,6 +21,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    pageController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -33,16 +39,23 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: const SingleChildScrollView(
-        //child: _widgetOptions.elementAt(_selectedIndex),
-        child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Próximo agendamento'),
-          ],
+      body: ListenableBuilder(
+        listenable: pageController,
+        builder: (context, child) => Center(
+          child: PageView(
+            controller: pageController,
+            children: const [
+              Text('Próximo agendamento'),
+              Text('Próximo agendamento 1'),
+              Text('Próximo agendamento 2'),
+            ],
+          ),
         ),
       ),
-      bottomNavigationBar: NavigatorWidget(pageController: pageController),
+      bottomNavigationBar: ListenableBuilder(
+        listenable: pageController,
+        builder: (context, child) => NavigatorWidget(pageController: pageController),
+      ),
     );
   }
 }
