@@ -3,8 +3,6 @@ import 'package:http/http.dart';
 
 import 'external/http/http_client.dart';
 import 'external/http/http_client_impl.dart';
-import 'modules/home/home_module.dart';
-import 'modules/my_schedule/my_schedule_module.dart';
 import 'routes/app_routes.dart';
 
 class AppModule extends Module {
