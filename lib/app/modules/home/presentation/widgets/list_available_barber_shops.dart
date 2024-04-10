@@ -6,7 +6,7 @@ import '../../../../constants/app_colors.dart';
 class ListAvailableBarberShop extends StatelessWidget {
   final List<String> list;
 
-  const ListAvailableBarberShop({Key? key, required this.list}) : super(key: key);
+  const ListAvailableBarberShop({super.key, required this.list});
 
   @override
   Widget build(BuildContext context) {

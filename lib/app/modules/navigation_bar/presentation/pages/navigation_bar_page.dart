@@ -17,10 +17,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   final pageController = PageController();
   bool loading = true;
 
-  @override
-  void initState() {
-    super.initState();
-    // carregar proxímo agendamento
+  Future<void> initPage() async { 
     Future.delayed(
       const Duration(milliseconds: 5000),
       () {
@@ -30,6 +27,12 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
         //Modular.to.navigate(AppRoutes.navigationModule);//${AppRoutes.createUser}'); // vai ser home
       },
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initPage();
   }
 
   @override
@@ -56,6 +59,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
         builder: (context, child) => Center(
           child: PageView(
             controller: pageController,
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               Skeletonizer(enabled: loading, child: const HomePage()),
               Skeletonizer(enabled: loading, child: const MySchedulePage()),
