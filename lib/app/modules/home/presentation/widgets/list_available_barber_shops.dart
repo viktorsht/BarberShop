@@ -1,5 +1,7 @@
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
+import 'package:barber_shop/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../constants/app_colors.dart';
 
@@ -22,7 +24,8 @@ class ListAvailableBarberShop extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0), // Ajuste o espaçamento horizontal conforme necessário
             child: GestureDetector(
               onTap: () {
-                controller.selectCity(index);
+                controller.selectBarberShop(index);
+                Modular.to.navigate(AppRoutes.scheduleModule);
               },
               child: Column(
                 children: [

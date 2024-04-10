@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'external/http/http_client.dart';
 import 'external/http/http_client_impl.dart';
 import 'modules/home/home_module.dart';
+import 'modules/schedule/schedule_module.dart';
 import 'modules/splash/splash_page.dart';
 import 'routes/app_routes.dart';
 
@@ -22,7 +23,7 @@ class AppModule extends Module {
     //r.module(AppRoutes.authModule, module: AuthModule());
     r.module(AppRoutes.homeModule, module: HomeModule());
     r.module(AppRoutes.navigationModule, module: NavigationBarModule());
-    //r.module(AppRoutes.scheduleModule, module: ScheduleModule());
+    r.module(AppRoutes.scheduleModule, module: ScheduleModule());
     //r.module(AppRoutes.myScheduleModule, module: MyScheduleModule());
   }
 }
