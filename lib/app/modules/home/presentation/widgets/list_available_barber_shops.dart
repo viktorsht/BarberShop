@@ -25,7 +25,7 @@ class ListAvailableBarberShop extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 controller.selectBarberShop(index);
-                Modular.to.navigate(AppRoutes.scheduleModule);
+                Modular.to.pushNamed(AppRoutes.scheduleModule);
               },
               child: Column(
                 children: [

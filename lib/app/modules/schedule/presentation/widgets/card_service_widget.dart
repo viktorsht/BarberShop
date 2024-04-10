@@ -1,4 +1,6 @@
+import 'package:barber_shop/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../constants/app_colors.dart';
 
@@ -45,12 +47,14 @@ class CardServiceWidget extends StatelessWidget {
           Center(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.secundaryColor,
+                backgroundColor: AppColors.buttonColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)
                 )
               ),
-              onPressed: (){}, 
+              onPressed: (){
+                Modular.to.pushNamed("${AppRoutes.scheduleModule}${AppRoutes.schedule}");
+              }, 
               child: Text("Agendar", style: TextStyle(color: AppColors.secundaryColorText),)
             ),
           ),
