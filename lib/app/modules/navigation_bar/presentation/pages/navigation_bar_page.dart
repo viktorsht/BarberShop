@@ -2,6 +2,7 @@ import 'package:barber_shop/app/modules/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../my_schedules/my_schedules_page.dart';
 import '../widgets/navigator_widget.dart';
 
 class NavigationBarPage extends StatefulWidget {
@@ -57,8 +58,8 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
             controller: pageController,
             children: [
               Skeletonizer(enabled: loading, child: const HomePage()),
-              const Text('Próximo agendamento 1'),
-              const Text('Próximo agendamento 2'),
+              Skeletonizer(enabled: loading, child: const MySchedulePage()),
+              Skeletonizer(enabled: loading, child: const Text('Próximo agendamento 2')),
             ],
           ),
         ),
