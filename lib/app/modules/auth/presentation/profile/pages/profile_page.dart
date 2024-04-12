@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../common_widgets/error_retry_widget.dart';
 import '../../../../../constants/app_colors.dart';

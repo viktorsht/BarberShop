@@ -1,3 +1,4 @@
+import 'package:barber_shop/app/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 import '../../common_widgets/card_schedule.dart';
@@ -14,9 +15,16 @@ class MySchedulePage extends StatelessWidget {
         //scrollDirection: Axis.horizontal,
         itemBuilder: (context, index){
           //Text('Próximo agendamento', style: TextStyle(fontSize: 18),),
-          return const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CardSchedule(numSchedule: '123', service: 'Corte Social', value: '30.00', time: '30', date: '10/04/2024', urlImage: '', ),
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CardSchedule(
+              numSchedule: '123',
+              service: 'Corte Social',
+              value: '30.00',
+              time: '30',
+              date: '10/04/2024', 
+              urlImage: AppImages.imageBarberShopExemploLink, 
+            ),
           );
           /*SizedBox(height: 16,),
           Text('Cidades', style: TextStyle(fontSize: 18),),
