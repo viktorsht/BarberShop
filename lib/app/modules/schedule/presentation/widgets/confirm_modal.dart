@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../../common_widgets/card_schedule.dart';
 import '../../../../constants/app_colors.dart';

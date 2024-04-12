@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
 
-class WidgetFormField extends StatelessWidget {
+class TextFormFieldWidget extends StatelessWidget {
   final String hint;
   final String value;
   final bool? obscure;
@@ -12,7 +12,7 @@ class WidgetFormField extends StatelessWidget {
   final Widget? suffix;
   final TextInputType? keyboardType;
 
-  const WidgetFormField({
+  const TextFormFieldWidget({
     super.key,
     this.prefix,
     this.suffix,

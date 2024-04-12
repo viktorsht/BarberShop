@@ -27,7 +27,7 @@ class ListBarbersMan extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     controller.selectBarberMan(index);
-                    print(controller.barberMan);
+                    //print(controller.barberMan);
                     //Modular.to.navigate(AppRoutes.scheduleModule);
                   },
                   child: Column(
