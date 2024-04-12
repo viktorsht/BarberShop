@@ -3,6 +3,7 @@ import 'package:barber_shop/app/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../constants/app_ads.dart';
 import '../../../../utils/date_format_converter.dart';
 import '../widgets/list_available_barber_shops.dart';
 import '../widgets/list_available_cities.dart';
@@ -13,14 +14,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    final List<String> adsList = [
-      "https://i.ytimg.com/vi/Fq04leHJ5yA/maxresdefault.jpg",
-      "https://img.freepik.com/premium-psd/barber-shop-landing-page-template_23-2148681402.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLyuqUciwAGhOCvVh5iRvzbZDhohTRKxjQka9h3MrRmiP_W4quXK0WuJE9Os-bzYrYbyo&usqp=CAU",
-      "https://img.freepik.com/premium-psd/barber-shop-landing-page-template_23-2148681402.jpg",
-      // Adicione mais publicações conforme necessário
-    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -32,6 +25,16 @@ class HomePage extends StatelessWidget {
             Text(getFormattedDateFromToday(), style: const TextStyle(fontSize: 13),),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.info_outline)
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.settings)
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -39,7 +42,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AdsWidget(publicacoes: adsList),
+              AppAds.adsList.isEmpty ? Container() : AdsWidget(publicacoes: AppAds.adsList),
               const SizedBox(height: 16,),
               const Text('Próximo agendamento', style: TextStyle(fontSize: 18),),
               const SizedBox(height: 16,),
