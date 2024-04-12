@@ -27,4 +27,10 @@ class ClientHttpImpl implements ClientHttp{
     final response = await client.put(Uri.parse(url), headers: headers, body: jsonEncode(body));
     return response;
   }
+
+  @override
+  Future<dynamic> delete(String url, Map<String, String> headers, Map<String, dynamic> body) async {
+    final response = await client.delete(Uri.parse(url), headers: headers, body: jsonEncode(body));
+    return response;
+  }
 }
