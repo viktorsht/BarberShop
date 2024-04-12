@@ -11,5 +11,9 @@ class RoutesApi{
   static String paymentMethods = '${Api.urlApi}paymentMethods';
   static String hoursActive = '${Api.urlApi}hoursActive';
   static String hours = '${Api.urlApi}hours';
+  static String login = '${Api.urlApi}login';
+  static String refresh = '${Api.urlApi}refresh';
+  static String createUser = '${Api.urlApi}createUser';
+  static String myUser = '${Api.urlApi}myUser';
 
 }
