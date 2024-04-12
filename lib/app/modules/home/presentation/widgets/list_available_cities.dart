@@ -13,7 +13,7 @@ class ListAvailableCities extends StatelessWidget {
     return ListenableBuilder(
       listenable: controller,
       builder: (context, child) => SizedBox(
-        height: 60,
+        height: 80,
         child: ListView.builder(
           itemCount: list.length,
           scrollDirection: Axis.horizontal,
@@ -26,6 +26,7 @@ class ListAvailableCities extends StatelessWidget {
                 },
                 child: Container(
                   width: 100,
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: controller.citySelect == index ? AppColors.buttonColor : AppColors.background, 
                     borderRadius: BorderRadius.circular(10)
@@ -33,9 +34,11 @@ class ListAvailableCities extends StatelessWidget {
                   child: Center(
                     child: Text(
                       list[index], 
+                      maxLines: 2,
                       style: TextStyle(
                         color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText, 
-                        fontSize: 14
+                        fontSize: 14,
+                        overflow: TextOverflow.ellipsis
                       ),
                     ),
                   ),

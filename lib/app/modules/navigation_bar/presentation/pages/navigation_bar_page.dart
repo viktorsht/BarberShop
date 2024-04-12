@@ -1,7 +1,10 @@
 import 'package:barber_shop/app/modules/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../auth/presentation/profile/controller/profile_controller.dart';
+import '../../../auth/presentation/profile/pages/profile_page.dart';
 import '../../../my_schedules/my_schedules_page.dart';
 import '../widgets/navigator_widget.dart';
 
@@ -53,7 +56,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
             children: [
               Skeletonizer(enabled: loading, child: const HomePage()),
               Skeletonizer(enabled: loading, child: const MySchedulePage()),
-              Skeletonizer(enabled: loading, child: const Text('Próximo agendamento 2')),
+              Skeletonizer(enabled: loading, child: ProfilePage(controller: Modular.get<ProfileController>(),)),
             ],
           ),
         ),

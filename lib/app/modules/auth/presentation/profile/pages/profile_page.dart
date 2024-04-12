@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-
-import '../../../../../common_widgets/app_bar_widget.dart';
 import '../../../../../common_widgets/error_retry_widget.dart';
 import '../../../../../constants/app_colors.dart';
 import '../../../../../routes/app_routes.dart';
@@ -29,9 +28,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
-        title: 'Meu Perfil',
-        onBackPressed: () => Modular.to.navigate(AppRoutes.homeModule),
+      appBar: AppBar(
+        title: const Text('Meu Perfil'),
       ),
       body: ListenableBuilder(
         listenable: widget.controller,
@@ -72,6 +70,20 @@ class _ProfilePageState extends State<ProfilePage> {
                   const Text('Email'),
                   TextFormField(
                     initialValue: widget.controller.user.email.toString()
+                  ),
+                  const SizedBox(height: 16,),
+                  Align(
+                    alignment: Alignment.center,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.buttonColor,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8))
+                        )
+                      ),
+                      onPressed: (){}, 
+                      child: Text("Atualizar", style: TextStyle(color: AppColors.secundaryColorText),)
+                    ),
                   ),
                 ],
               ),

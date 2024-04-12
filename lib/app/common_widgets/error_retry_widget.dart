@@ -1,4 +1,7 @@
+import 'package:barber_shop/app/constants/app_images.dart';
 import 'package:flutter/material.dart';
+
+import '../constants/app_colors.dart';
 
 class ErrorRetryWidget extends StatelessWidget {
   final String errorMessage;
@@ -13,11 +16,7 @@ class ErrorRetryWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Icon(
-            Icons.error,
-            size: 50,
-            color: Colors.red,
-          ),
+          Image.asset(AppImages.error,height: 100),
           const SizedBox(height: 20),
           Text(
             errorMessage,
@@ -26,10 +25,16 @@ class ErrorRetryWidget extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.buttonColor,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8))
+              )
+            ),
             onPressed: () => onRetry(),
             child: Text(
               msgButton, 
-              style: const TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(fontSize: 16, color: AppColors.secundaryColorText),
             ),
           ),
         ],
