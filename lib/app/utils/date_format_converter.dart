@@ -1,5 +1,7 @@
 import 'package:intl/intl.dart';
 
+import '../constants/constants.dart';
+
 String getCurrentDate() {
   DateTime now = DateTime.now();
   String formattedDate = '${now.day.toString().padLeft(2, '0')}/${now.month.toString().padLeft(2, '0')}/${now.year}';
@@ -24,11 +26,9 @@ String getFormattedDateFromToday() {
 }
 
 String _getWeekDay(DateTime date) {
-  List<String> weekDays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
-  return weekDays[date.weekday - 1];
+  return Constants.weekDays[date.weekday - 1];
 }
 
 String _getMonth(DateTime date) {
-  List<String> months = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
-  return months[date.month - 1];
+  return Constants.months[date.month - 1];
 }
