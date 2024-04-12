@@ -1,7 +1,9 @@
 import 'package:barber_shop/app/common_widgets/card_schedule.dart';
 import 'package:barber_shop/app/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
+import 'package:barber_shop/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../constants/app_ads.dart';
 import '../../../../utils/date_format_converter.dart';
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Modular.to.pushNamed("${AppRoutes.homeModule}${AppRoutes.about}"),
             icon: const Icon(Icons.info_outline)
           ),
           IconButton(
