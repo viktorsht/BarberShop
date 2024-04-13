@@ -11,15 +11,19 @@ import 'modules/schedule/schedule_module.dart';
 import 'modules/splash/splash_page.dart';
 import 'routes/app_routes.dart';
 
-class AppModule extends Module {
-
+class CoreModule extends Module {
   @override
   void exportedBinds(Injector i) {
     i.add<ClientHttp>(ClientHttpImpl.new);
     i.addInstance(Client());
     i.add<Headers>(HeadersApi.new);
-
   }
+}
+
+class AppModule extends Module {
+
+  @override
+  List<Module> get imports => [CoreModule(), AuthModule()];
 
   @override
   void routes(r) {

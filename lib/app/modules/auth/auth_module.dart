@@ -13,9 +13,9 @@ import 'repositories/auth_repository_impl.dart';
 import 'repositories/token_repository_impl.dart';
 
 class AuthModule extends Module {
-  
+
   @override
-  List<Module> get imports => [AppModule()];
+  List<Module> get imports => [CoreModule()];
 
   @override
   void exportedBinds(Injector i) {

@@ -21,23 +21,6 @@ class _AboutPageState extends State<AboutPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(child: Image.asset(AppImages.logo, width: 200,)),
-                const Text(
-                  'Nós da ONG repense acreditamos que a educação e o acesso à informação de qualidade são fatores de extrema importância para que possamos mudar de vida. Nosso objetivo é bem simples:',
-                  style: TextStyle(fontSize: 18),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'FAZER A DIFERENÇA NA VIDA DAS PESSOAS.',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Por isso decidimos constituir a repense, uma ONG que visa capacitar pessoas, conectando pessoas.',
-                  style: TextStyle(fontSize: 18),
-                  textAlign: TextAlign.center,
-                ),
               ],
             ),
           ),

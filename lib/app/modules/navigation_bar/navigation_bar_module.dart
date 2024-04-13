@@ -7,7 +7,7 @@ import 'presentation/pages/navigation_bar_page.dart';
 
 class NavigationBarModule extends Module{
   @override
-  List<Module> get imports => [AppModule(), AuthModule()];
+  List<Module> get imports => [CoreModule(), AuthModule()];
   
   @override
   void routes(r) {
