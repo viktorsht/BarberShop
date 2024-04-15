@@ -9,8 +9,8 @@ import 'presentation/login/controller/login_controller.dart';
 import 'presentation/login/pages/login_page.dart';
 import 'presentation/profile/controller/profile_controller.dart';
 import 'presentation/profile/pages/profile_page.dart';
-import 'repositories/auth_repository_impl.dart';
-import 'repositories/token_repository_impl.dart';
+import 'data/repositories/auth_repository_impl.dart';
+import 'data/repositories/token_repository_impl.dart';
 
 class AuthModule extends Module {
 

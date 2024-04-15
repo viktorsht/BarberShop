@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../domain/repositories/token_repository.dart';
+import '../../domain/repositories/token_repository.dart';
 
 class TokenRepositoryImpl extends TokenRepository {
   static const String _tokenKey = 'token';
