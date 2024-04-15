@@ -9,4 +9,6 @@ abstract class AuthDataSources {
   Future<Token> login(Login login);
   Future<Token> refreshToken(Refresh refresh);
   Future<User> myUser();
+  Future<void> forgotPassword(String email);
+
 }

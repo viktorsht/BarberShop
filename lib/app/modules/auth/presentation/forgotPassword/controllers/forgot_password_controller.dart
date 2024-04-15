@@ -15,7 +15,7 @@ class ForgotPasswordController extends ChangeNotifier{
     state = ForgotLoading();
     notifyListeners();
     try{
-      //final data = await authRepository.forgotPassword(email);
+      await authRepository.forgotPassword(email);
       state = ForgotSucess();
       notifyListeners();
     }

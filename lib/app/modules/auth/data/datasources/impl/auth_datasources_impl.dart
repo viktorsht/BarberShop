@@ -55,5 +55,10 @@ class AuthDataSourcesImpl implements AuthDataSources{
     final json = jsonDecode(response.body);
     return Token.fromJson(json);
   }
+  
+  @override
+  Future<void> forgotPassword(String email) {
+    throw UnimplementedError();
+  }
 
 }
