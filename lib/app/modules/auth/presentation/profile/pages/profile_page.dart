@@ -1,8 +1,8 @@
+import 'package:barber_shop/app/configs/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../../../../common_widgets/error_retry_widget.dart';
-import '../../../../../constants/app_colors.dart';
-import '../../../../../routes/app_routes.dart';
+import '../../../../../utils/common_widgets/error_retry_widget.dart';
+import '../../../../../utils/constants/app_colors.dart';
 import '../../../domain/states/logged_state.dart';
 import '../controller/profile_controller.dart';
 import '../controller/profile_state.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../constants/app_images.dart';
+import '../../../../../utils/constants/app_images.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});

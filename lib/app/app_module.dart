@@ -2,6 +2,7 @@ import 'package:barber_shop/app/modules/navigation_bar/navigation_bar_module.dar
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart';
 
+import 'configs/routes/app_routes.dart';
 import 'external/api/headers.dart';
 import 'external/http/http_client.dart';
 import 'external/http/http_client_impl.dart';
@@ -9,7 +10,6 @@ import 'modules/auth/auth_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/schedule/schedule_module.dart';
 import 'modules/splash/splash_page.dart';
-import 'routes/app_routes.dart';
 
 class CoreModule extends Module {
   @override

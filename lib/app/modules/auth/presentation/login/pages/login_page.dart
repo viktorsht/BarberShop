@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../../common_widgets/text_form_field_widget.dart';
-import '../../../../../constants/app_colors.dart';
-import '../../../../../constants/app_images.dart';
-import '../../../../../routes/app_routes.dart';
-import '../../../../../valueobject/email.dart';
-import '../../../../../valueobject/password.dart';
+import '../../../../../configs/routes/app_routes.dart';
+import '../../../../../utils/common_widgets/text_form_field_widget.dart';
+import '../../../../../utils/constants/app_colors.dart';
+import '../../../../../utils/constants/app_images.dart';
+import '../../../../../resources/valueobject/email.dart';
+import '../../../../../resources/valueobject/password.dart';
 import '../../../domain/entities/login.dart';
 import '../controller/login_controller.dart';
 import '../controller/login_state.dart';

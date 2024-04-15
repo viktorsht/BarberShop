@@ -2,7 +2,7 @@ import 'package:barber_shop/app/app_module.dart';
 import 'package:barber_shop/app/modules/schedule/presentation/pages/schedule_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../routes/app_routes.dart';
+import '../../configs/routes/app_routes.dart';
 import 'presentation/pages/services_page.dart';
 
 class ScheduleModule extends Module{

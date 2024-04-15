@@ -2,8 +2,8 @@ import 'package:barber_shop/app/modules/schedule/presentation/controllers/schedu
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_colors.dart';
-import '../../../../constants/constants.dart';
+import '../../../../utils/constants/app_colors.dart';
+import '../../../../utils/constants/constants.dart';
 import '../widgets/list_barbers_man.dart';
 import '../widgets/list_hours_avaliables_widget.dart';
 

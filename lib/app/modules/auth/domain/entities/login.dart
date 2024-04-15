@@ -1,5 +1,5 @@
-import '../../../../valueobject/email.dart';
-import '../../../../valueobject/password.dart';
+import '../../../../resources/valueobject/email.dart';
+import '../../../../resources/valueobject/password.dart';
 
 class Login {
   Email? email;

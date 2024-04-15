@@ -1,4 +1,4 @@
-import 'package:barber_shop/app/constants/app_images.dart';
+import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';

@@ -1,7 +1,7 @@
-import 'package:barber_shop/app/constants/app_images.dart';
+import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/card_schedule.dart';
+import '../../utils/common_widgets/card_schedule.dart';
 
 class MySchedulePage extends StatelessWidget {
   const MySchedulePage({super.key});

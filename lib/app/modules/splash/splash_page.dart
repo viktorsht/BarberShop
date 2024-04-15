@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_images.dart';
-import '../../routes/app_routes.dart';
+import '../../configs/routes/app_routes.dart';
+import '../../utils/constants/app_colors.dart';
+import '../../utils/constants/app_images.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:barber_shop/app/modules/schedule/presentation/controllers/schedule_controllers.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_colors.dart';
+import '../../../../utils/constants/app_colors.dart';
 
 class ListBarbersMan extends StatelessWidget {
   final List<String> list;

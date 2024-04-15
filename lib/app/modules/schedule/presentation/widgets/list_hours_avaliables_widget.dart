@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_colors.dart';
+import '../../../../utils/constants/app_colors.dart';
 import '../controllers/schedule_controllers.dart';
 import 'confirm_modal.dart';
 

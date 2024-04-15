@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../common_widgets/card_schedule.dart';
-import '../../../../constants/app_colors.dart';
+import '../../../../utils/common_widgets/card_schedule.dart';
+import '../../../../utils/constants/app_colors.dart';
 
 class ConfirmModal extends StatelessWidget {
   final String title;

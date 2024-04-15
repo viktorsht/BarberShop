@@ -1,10 +1,10 @@
-import 'package:barber_shop/app/constants/app_images.dart';
+import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
-import 'package:barber_shop/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../constants/app_colors.dart';
+import '../../../../configs/routes/app_routes.dart';
+import '../../../../utils/constants/app_colors.dart';
 
 class ListAvailableBarberShop extends StatelessWidget {
   final List<String> list;

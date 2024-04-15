@@ -1,12 +1,12 @@
-import 'package:barber_shop/app/common_widgets/card_schedule.dart';
-import 'package:barber_shop/app/constants/app_images.dart';
+import 'package:barber_shop/app/utils/common_widgets/card_schedule.dart';
+import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
-import 'package:barber_shop/app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../../constants/app_ads.dart';
-import '../../../../utils/date_format_converter.dart';
+import '../../../../configs/routes/app_routes.dart';
+import '../../../../utils/constants/app_ads.dart';
+import '../../../../utils/date/date_format_converter.dart';
 import '../widgets/list_available_barber_shops.dart';
 import '../widgets/list_available_cities.dart';
 

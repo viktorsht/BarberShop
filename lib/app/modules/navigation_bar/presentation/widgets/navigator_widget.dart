@@ -1,4 +1,4 @@
-import 'package:barber_shop/app/constants/app_colors.dart';
+import 'package:barber_shop/app/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorWidget extends StatelessWidget {

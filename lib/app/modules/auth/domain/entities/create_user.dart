@@ -1,7 +1,7 @@
 
-import '../../../../valueobject/email.dart';
-import '../../../../valueobject/name.dart';
-import '../../../../valueobject/password.dart';
+import '../../../../resources/valueobject/email.dart';
+import '../../../../resources/valueobject/name.dart';
+import '../../../../resources/valueobject/password.dart';
 
 class CreateUser {
   Email? email;

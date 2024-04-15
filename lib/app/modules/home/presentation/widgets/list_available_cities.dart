@@ -1,7 +1,7 @@
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/app_colors.dart';
+import '../../../../utils/constants/app_colors.dart';
 
 class ListAvailableCities extends StatelessWidget {
   final List<String> list; // depois tem que mudar o tipo da lista

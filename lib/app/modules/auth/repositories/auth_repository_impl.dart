@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 
-import '../../../execptions/unauthorized_exception.dart';
+import '../../../resources/execptions/unauthorized_exception.dart';
 import '../../../external/api/headers.dart';
 import '../../../external/api/routes.dart';
 import '../../../external/http/http_client.dart';

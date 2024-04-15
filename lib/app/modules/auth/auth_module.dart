@@ -1,6 +1,6 @@
 import 'package:barber_shop/app/app_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import '../../routes/app_routes.dart';
+import '../../configs/routes/app_routes.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/repositories/token_repository.dart';
 import 'presentation/createUser/controller/create_user_controller.dart';
