@@ -31,7 +31,7 @@ class TextFormFieldWidget extends StatelessWidget {
         keyboardType: keyboardType,
         onChanged: onChanged,
         validator: validator,
-        style: const TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 16),
         cursorColor: AppColors.secundaryColor,
         decoration: InputDecoration(
           filled: true,
