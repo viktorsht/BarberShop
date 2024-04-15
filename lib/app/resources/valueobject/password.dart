@@ -8,16 +8,24 @@ class Password implements ValueObject {
   @override
   String? validator() {
     if (_value.isEmpty) {
-      return 'Campo senha vazio!';
+      return 'Senha não definida';
     }
 
     if (_value.length < 8) {
-      return 'A senha deve ter pelo menos 8 caracteres';
+      return 'Precisa 8 caracteres com letras e números';
+    }
+
+    if (!_value.contains(RegExp(r'^[a-zA-Z]+$'))) {
+      return 'Falta uma letra';
+    }
+
+    if (!_value.contains(RegExp(r'[0-9]'))) {
+      return 'Falta um número';
     }
 
     return null;
   }
 
   @override
-  String toString() => _value;
+  String toString() => _value.toUpperCase();
 }

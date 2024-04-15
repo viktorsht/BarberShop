@@ -10,7 +10,7 @@ class Email implements ValueObject {
   @override
   String? validator() {
     if (_value.isEmpty) {
-      return 'Este campo não pode ser vazio';
+      return 'Email não definido';
     } else if (!_emailRegex.hasMatch(_value)) {
       return 'Formato de e-mail inválido';
     }

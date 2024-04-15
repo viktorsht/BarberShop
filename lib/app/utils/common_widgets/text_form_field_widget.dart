@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../constants/app_colors.dart';
 
@@ -11,6 +12,7 @@ class TextFormFieldWidget extends StatelessWidget {
   final Widget? prefix;
   final Widget? suffix;
   final TextInputType? keyboardType;
+  final TextInputFormatter? inputFormatter;
 
   const TextFormFieldWidget({
     super.key,
@@ -21,7 +23,7 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.hint,
     required this.value,
     this.obscure,
-    this.validator,
+    this.validator, this.inputFormatter,
   });
 
   @override
@@ -31,15 +33,15 @@ class TextFormFieldWidget extends StatelessWidget {
         keyboardType: keyboardType,
         onChanged: onChanged,
         validator: validator,
+        inputFormatters: inputFormatter != null ? [inputFormatter!] : null,
         style: const TextStyle(fontSize: 16),
         cursorColor: AppColors.secundaryColor,
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.primaryColor,
           hintText: hint,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
           prefixIcon: prefix,
           suffixIcon: suffix,
         ),

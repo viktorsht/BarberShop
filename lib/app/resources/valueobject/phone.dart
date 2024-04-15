@@ -10,9 +10,9 @@ class Phone implements ValueObject {
   @override
   String? validator() {
     if (_value.isEmpty) {
-      return 'Adicione um número de telefone';
+      return 'Telefone não definido';
     } else if (_value.length != 11) {
-      return 'Formato de telefone inválido';
+      return 'Telefone inválido';
     }
     return null;
   }
