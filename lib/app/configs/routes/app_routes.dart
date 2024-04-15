@@ -2,6 +2,7 @@ class AppRoutes{
   static String root = '/';
   static String createUser = '/createUser';
   static String profile = '/profile';
+  static String forgotPassword = '/forgotPassword';
   static String updateUser = '/updateUser';
   static String schedule = '/schedule';
   static String confirme = '/confirme';

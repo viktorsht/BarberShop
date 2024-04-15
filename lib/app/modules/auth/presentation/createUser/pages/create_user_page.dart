@@ -210,13 +210,13 @@ class _CreateUserPageState extends State<CreateUserPage> {
                           child: TextButton(
                             onPressed: () {Modular.to.navigate(AppRoutes.authModule);},
                             child: Text(
-                                "Já tenho uma conta",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.secundaryColor
-                                ),
+                              "Já tenho uma conta",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.secundaryColor
                               ),
+                            ),
                           ),
                         )
                       ],
