@@ -11,7 +11,7 @@ class ForgotPasswordController extends ChangeNotifier{
 
   ForgotState state = ForgotInitial();
 
-  Future<void> createUser(String email) async {
+  Future<void> forgotPassword(String email) async {
     state = ForgotLoading();
     notifyListeners();
     try{

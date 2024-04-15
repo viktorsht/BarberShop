@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
-                            onPressed: () => {},// Modular.to.navigate('${AppRoutes.authModule}${AppRoutes.createUser}'),
+                            onPressed: () => Modular.to.pushNamed('${AppRoutes.authModule}${AppRoutes.forgotPassword}'),
                             child: Text("Esqueceu sua senha?", style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
