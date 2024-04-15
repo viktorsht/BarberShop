@@ -62,9 +62,9 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(32.0),
                   child: Container(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: AppColors.primaryColor,
                       borderRadius: BorderRadius.circular(10.0),
@@ -133,9 +133,8 @@ class _LoginPageState extends State<LoginPage> {
                                 }, 
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColors.buttonColor,
-                                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25)
+                                    borderRadius: BorderRadius.circular(10)
                                   )
                                 ),
                                 child: widget.controller.state is LoginLoading 

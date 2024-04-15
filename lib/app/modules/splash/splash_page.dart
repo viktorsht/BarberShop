@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(milliseconds: 1000),
+      const Duration(seconds: 1),
       () async {
         final state = await widget.controller.isLogged();
         if(state is LoggedIn){
