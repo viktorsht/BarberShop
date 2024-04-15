@@ -96,7 +96,6 @@ class _LoginPageState extends State<LoginPage> {
                             iconData: isViewPassword ? Icons.remove_red_eye_outlined : Icons.remove_red_eye_rounded,
                           ),
                         ),
-                        //const SizedBox(height: 8),
                         Align(
                           alignment: Alignment.centerRight,
                           child: TextButton(
