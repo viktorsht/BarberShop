@@ -1,6 +1,8 @@
 import 'package:barber_shop/app/app_module.dart';
+import 'package:barber_shop/app/modules/auth/data/datasources/auth_datasources.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../configs/routes/app_routes.dart';
+import 'data/datasources/impl/auth_datasources_impl.dart';
 import 'domain/repositories/auth_repository.dart';
 import 'domain/repositories/token_repository.dart';
 import 'presentation/createUser/controller/create_user_controller.dart';
@@ -20,6 +22,7 @@ class AuthModule extends Module {
   @override
   void exportedBinds(Injector i) {
     i.add<AuthRepository>(AuthRepositoryImpl.new);
+    i.add<AuthDataSources>(AuthDataSourcesImpl.new);
     i.add<CreateUserController>(CreateUserController.new);
     i.add<LoginController>(LoginController.new);
     i.add(ProfileController.new);

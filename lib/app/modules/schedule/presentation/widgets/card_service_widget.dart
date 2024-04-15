@@ -28,7 +28,19 @@ class CardServiceWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Center(child: CircleAvatar()),
+          Center(
+            child: CircleAvatar(
+              radius: 40,
+              child: ClipOval(
+                child: Image.network(
+                  urlImage,
+                  errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                    return const Icon(Icons.person);
+                  },
+                ),
+              ),
+            ),
+          ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
