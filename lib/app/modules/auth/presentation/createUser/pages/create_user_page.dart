@@ -61,157 +61,171 @@ class _CreateUserPageState extends State<CreateUserPage> {
       key: formKey,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Scaffold(
-        body: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(right: 16.0, left: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(AppImages.logo, width: 250,),
-                  //const SizedBox(height: 8,),
-                  const Text('Crie sua conta', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                  const SizedBox(height: 8,),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextFormFieldWidget(
-                          hint: 'Nome',
-                          value: entity.firstName!.toString(),
-                          onChanged: (p0) => entity.firstName = Name(p0),
-                          validator: (p0) => entity.firstName!.validator(),
-                        ),
-                      ),
-                      const SizedBox(width: 10,),
-                      Expanded(
-                        child: TextFormFieldWidget(
-                          hint: 'Sobrenome',
-                          value: entity.lastName!.toString(),
-                          onChanged: (p0) => entity.lastName = Name(p0),
-                          validator: (p0) => entity.lastName!.validator(),
-                        ),
-                      ),
-                    ],
-                  ),
-                  //const SizedBox(height: 8,),
-                  const SizedBox(height: 8,),
-                  TextFormFieldWidget(
-                    hint: 'Email',
-                    value: entity.email!.toString(),
-                    onChanged: (p0) => entity.email = Email(p0),
-                    validator: (p0) => entity.email!.validator(),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  const SizedBox(height: 8,),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextFormFieldWidget(
-                          hint: 'Nascimento',
-                          value: entity.dateOfBirth!.toString(),
-                          onChanged: (p0) => entity.dateOfBirth = DateOfBirth(p0),
-                          validator: (p0) => entity.dateOfBirth!.validator(),
-                          keyboardType: TextInputType.number,
-                          inputFormatter:  DateMaskedInputFormatter(mask: '##/##/####'),
-                        ),
-                      ),
-                      const SizedBox(width: 8,),
-                      Expanded(
-                        child: TextFormFieldWidget(
-                          hint: 'Telefone',
-                          value: entity.phone!.toString(),
-                          onChanged: (p0) => entity.phone = Phone(p0),
-                          validator: (p0) => entity.phone!.validator(),
-                          keyboardType: TextInputType.phone,
-                          inputFormatter: PhoneMaskedInputFormatter(mask: '(##)#########'),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8,),
-                  TextFormFieldWidget(
-                    hint: 'Senha',
-                    value: entity.password!.toString(),
-                    onChanged: (p0) => entity.password = Password(p0),
-                    validator: (p0) => entity.password!.validator(),
-                    obscure: !isViewPassword,
-                    suffix: PasswordLook(
-                      onPressed: setIsViewPassword, 
-                      iconData: isViewPassword ? Icons.remove_red_eye_outlined : Icons.remove_red_eye_rounded,
-                    ),
-                  ),
-                  const SizedBox(height: 8,),
-                  TextFormFieldWidget(
-                    hint: 'Confirmar senha',
-                    value: entity.passwordConfirmation!.toString(),
-                    onChanged: (p0) => entity.passwordConfirmation = Password(p0),
-                    validator: (p0) => entity.passwordConfirmation!.validator(),
-                    obscure: !isViewConfirPassword,
-                    suffix: PasswordLook(
-                      onPressed: setIsViewConfirPassword, 
-                      iconData: isViewConfirPassword ? Icons.remove_red_eye_outlined : Icons.remove_red_eye_rounded,
-                    ),
-                  ),
-                  const SizedBox(height: 8,),
-                  ListenableBuilder(
-                    listenable: widget.controller,
-                    builder: (context, child) {
-                      return FractionallySizedBox(
-                        widthFactor: 0.4,
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            final valid = form.validate();
-                            if(valid){
-                              await widget.controller.createUser(entity);
-                              if(widget.controller.state is CreateUserSucess){
-                                showSnackBar('Conta criada com sucesso!', AppColors.sucessColor);
-                                Future.delayed(
-                                  const Duration(seconds: 2),
-                                  () => Modular.to.navigate(AppRoutes.authModule)
-                                );
-                              }
-                              if(widget.controller.state is CreateUserError){
-                                showSnackBar('Erro no cadastro do usuário', AppColors.errorColor);
-                              }
-                            }
-                            else{
-                              showSnackBar('Dados inválidos inválidos', AppColors.errorColor);
-                            }
-                          }, 
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.buttonColor,
-                            //padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)
-                            )
-                          ),
-                          child: widget.controller.state is CreateUserLoading 
-                          ? CircularProgressIndicator(color: AppColors.primaryColor,) 
-                          : Text("Cadastre-se", style: TextStyle(color: AppColors.primaryColor, fontSize: 16),),
-                        ),
-                      );
-                    }
-                  ),
-                  //const SizedBox(height: 16,),
-                  //const Divider(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: TextButton(
-                      onPressed: () {Modular.to.navigate(AppRoutes.authModule);},
-                      child: Text(
-                          "Já tenho uma conta",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.secundaryColor
-                          ),
-                        ),
-                    ),
-                  )
-                ],
+        body: Stack(
+          children: [
+             Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(AppImages.login),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
+            Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16.0, left: 16.0),
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor,
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(AppImages.logo, width: 200,),
+                        const Text('Crie sua conta', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                        const SizedBox(height: 8,),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextFormFieldWidget(
+                                hint: 'Nome',
+                                value: entity.firstName!.toString(),
+                                onChanged: (p0) => entity.firstName = Name(p0),
+                                validator: (p0) => entity.firstName!.validator(),
+                              ),
+                            ),
+                            const SizedBox(width: 10,),
+                            Expanded(
+                              child: TextFormFieldWidget(
+                                hint: 'Sobrenome',
+                                value: entity.lastName!.toString(),
+                                onChanged: (p0) => entity.lastName = Name(p0),
+                                validator: (p0) => entity.lastName!.validator(),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8,),
+                        TextFormFieldWidget(
+                          hint: 'Email',
+                          value: entity.email!.toString(),
+                          onChanged: (p0) => entity.email = Email(p0),
+                          validator: (p0) => entity.email!.validator(),
+                          keyboardType: TextInputType.emailAddress,
+                        ),
+                        const SizedBox(height: 8,),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: TextFormFieldWidget(
+                                hint: 'Nascimento',
+                                value: entity.dateOfBirth!.toString(),
+                                onChanged: (p0) => entity.dateOfBirth = DateOfBirth(p0),
+                                validator: (p0) => entity.dateOfBirth!.validator(),
+                                keyboardType: TextInputType.number,
+                                inputFormatter:  DateMaskedInputFormatter(mask: '##/##/####'),
+                              ),
+                            ),
+                            const SizedBox(width: 8,),
+                            Expanded(
+                              child: TextFormFieldWidget(
+                                hint: 'Telefone',
+                                value: entity.phone!.toString(),
+                                onChanged: (p0) => entity.phone = Phone(p0),
+                                validator: (p0) => entity.phone!.validator(),
+                                keyboardType: TextInputType.phone,
+                                inputFormatter: PhoneMaskedInputFormatter(mask: '(##)#########'),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 8,),
+                        TextFormFieldWidget(
+                          hint: 'Senha',
+                          value: entity.password!.toString(),
+                          onChanged: (p0) => entity.password = Password(p0),
+                          validator: (p0) => entity.password!.validator(),
+                          obscure: !isViewPassword,
+                          suffix: PasswordLook(
+                            onPressed: setIsViewPassword, 
+                            iconData: isViewPassword ? Icons.remove_red_eye_outlined : Icons.remove_red_eye_rounded,
+                          ),
+                        ),
+                        const SizedBox(height: 8,),
+                        TextFormFieldWidget(
+                          hint: 'Confirmar senha',
+                          value: entity.passwordConfirmation!.toString(),
+                          onChanged: (p0) => entity.passwordConfirmation = Password(p0),
+                          validator: (p0) => entity.passwordConfirmation!.validator(),
+                          obscure: !isViewConfirPassword,
+                          suffix: PasswordLook(
+                            onPressed: setIsViewConfirPassword, 
+                            iconData: isViewConfirPassword ? Icons.remove_red_eye_outlined : Icons.remove_red_eye_rounded,
+                          ),
+                        ),
+                        const SizedBox(height: 8,),
+                        ListenableBuilder(
+                          listenable: widget.controller,
+                          builder: (context, child) {
+                            return FractionallySizedBox(
+                              widthFactor: 0.4,
+                              child: ElevatedButton(
+                                onPressed: () async {
+                                  final valid = form.validate();
+                                  if(valid){
+                                    await widget.controller.createUser(entity);
+                                    if(widget.controller.state is CreateUserSucess){
+                                      showSnackBar('Conta criada com sucesso!', AppColors.sucessColor);
+                                      Future.delayed(
+                                        const Duration(seconds: 2),
+                                        () => Modular.to.navigate(AppRoutes.authModule)
+                                      );
+                                    }
+                                    if(widget.controller.state is CreateUserError){
+                                      showSnackBar('Erro no cadastro do usuário', AppColors.errorColor);
+                                    }
+                                  }
+                                  else{
+                                    showSnackBar('Fornceça os dados corretamente', AppColors.errorColor);
+                                  }
+                                }, 
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColors.buttonColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)
+                                  )
+                                ),
+                                child: widget.controller.state is CreateUserLoading 
+                                ? CircularProgressIndicator(color: AppColors.primaryColor,) 
+                                : Text("Cadastre-se", style: TextStyle(color: AppColors.primaryColor, fontSize: 16),),
+                              ),
+                            );
+                          }
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: TextButton(
+                            onPressed: () {Modular.to.navigate(AppRoutes.authModule);},
+                            child: Text(
+                                "Já tenho uma conta",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.secundaryColor
+                                ),
+                              ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
