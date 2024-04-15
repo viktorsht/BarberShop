@@ -1,4 +1,5 @@
 import 'package:barber_shop/app/modules/navigation_bar/navigation_bar_module.dart';
+import 'package:barber_shop/app/modules/splash/splash_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart';
 
@@ -9,7 +10,6 @@ import 'external/http/http_client_impl.dart';
 import 'modules/auth/auth_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/schedule/schedule_module.dart';
-import 'modules/splash/splash_page.dart';
 
 class CoreModule extends Module {
   @override
@@ -27,7 +27,7 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child(AppRoutes.root, child: (context) => const SplashPage());
+    r.module(AppRoutes.root, module: SplashModule());
     r.module(AppRoutes.authModule, module: AuthModule());
     r.module(AppRoutes.homeModule, module: HomeModule());
     r.module(AppRoutes.navigationModule, module: NavigationBarModule());

@@ -1,3 +1,4 @@
+import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/card_service_widget.dart';
@@ -18,9 +19,14 @@ class _ServicesPageState extends State<ServicesPage> {
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index){
-          return const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CardServiceWidget(service: 'Corte Social', value: '30.00', time: '30', urlImage: '', ),
+          return  Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CardServiceWidget(
+              service: 'Corte Social',
+              value: '30.00',
+              time: '30',
+              urlImage: AppImages.imageBarberShopExemploLink,
+            ),
           );
         },
       ),
