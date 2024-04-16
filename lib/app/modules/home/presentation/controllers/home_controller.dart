@@ -59,13 +59,17 @@ class HomeController extends ChangeNotifier{
   }
 
   Future<void> getBarberShop() async{
-    setState(CitiesLoading());
+    setState(BarberLoading());
     try {
-      final list = await homeRepository.getBarberShop(citySelect);
+      print(citySelect);
+      final list = citySelect != -1 
+        ? await homeRepository.getBarberShop(citySelect) 
+        : await homeRepository.getBarberShop();
+      print(list);
       setListBarberShop(list);
-      setState(CitiesSucess());
+      setState(BarberSucess());
     } catch (e) {
-      e is UnauthorizedException ? setState(NotLoggedIn()) : setState(CitiesError());
+      e is UnauthorizedException ? setState(NotLoggedIn()) : setState(BarberError());
     }
   }
 

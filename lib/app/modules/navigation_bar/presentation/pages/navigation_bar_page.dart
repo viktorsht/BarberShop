@@ -1,6 +1,5 @@
 import 'package:barber_shop/app/modules/auth/presentation/profile/controller/profile_state.dart';
 import 'package:barber_shop/app/modules/home/presentation/pages/home_page.dart';
-import 'package:barber_shop/app/modules/home/presentation/states/states_cities.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -34,7 +33,6 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
         setState(() {
           loading = false;
         });
-        //Modular.to.navigate(AppRoutes.navigationModule);//${AppRoutes.createUser}'); // vai ser home
       },
     );
   }
@@ -65,10 +63,10 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
                 enabled: loading, child: ListenableBuilder(
                   listenable: widget.homeController,
                   builder: (context, child) {
-                    if(widget.homeController.state is CitiesSucess){
                       return HomePage(controller: widget.homeController);
+                    /*if(widget.homeController.state is CitiesSucess || widget.homeController.state is BarberSucess){
                     }
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());*/
                   }
                 )
               ),

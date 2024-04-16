@@ -4,5 +4,5 @@ import '../../domain/entities/city.dart';
 
 abstract class HomeDatasource{
   Future<List<City>> getCity(String token);
-  Future<List<Barber>> getBarberShop(String token, int id);
+  Future<List<Barber>> getBarberShop(String token,[int? id]);
 }

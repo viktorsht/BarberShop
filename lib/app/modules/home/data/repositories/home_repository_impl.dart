@@ -30,14 +30,16 @@ class HomeRepositoryImpl implements HomeRepository{
   }
 
   @override
-  Future<List<Barber>> getBarberShop(int id) async {
+  Future<List<Barber>> getBarberShop([int? id]) async {
     try {
       String? token = await tokenRepository.getToken();
       if(token == null){
         throw UnauthorizedException('Não logado');
       }
-      final barbers = await homeDatasource.getBarberShop(token, id);
-      return barbers;
+      if(id == null){
+        return await homeDatasource.getBarberShop(token);
+      }
+      return await homeDatasource.getBarberShop(token, id);
     } catch (e) {
       throw Exception(e);
     }

@@ -4,5 +4,5 @@ import '../entities/city.dart';
 
 abstract class HomeRepository{
   Future<List<City>> getCity();
-  Future<List<Barber>> getBarberShop(int id);
+  Future<List<Barber>> getBarberShop([int? id]);
 }

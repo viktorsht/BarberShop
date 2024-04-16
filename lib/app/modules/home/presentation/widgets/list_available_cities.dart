@@ -25,6 +25,7 @@ class ListAvailableCities extends StatelessWidget {
               child: GestureDetector(
                 onTap: () async {
                   controller.selectCity(list[index].id!);
+                  print(list[index].id);
                   await controller.getBarberShop();
                 },
                 child: Container(

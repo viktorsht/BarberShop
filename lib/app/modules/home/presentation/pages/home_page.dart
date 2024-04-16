@@ -1,4 +1,5 @@
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
+import 'package:barber_shop/app/modules/home/presentation/states/states_cities.dart';
 import 'package:barber_shop/app/utils/common_widgets/card_schedule.dart';
 import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
@@ -68,10 +69,25 @@ class HomePage extends StatelessWidget {
                     list: controller.listCities
                   ),
                   const SizedBox(height: 16,),
-                  const Text('Barbearias', style: TextStyle(fontSize: 18),),
-                  ListAvailableBarberShop(
-                    controller: controller,
-                    list: controller.listBarberShop,
+                  ListenableBuilder(
+                    listenable: controller,
+                    builder: (context, child) {
+                      if(controller.state is BarberSucess){
+                        return Column(
+                          children: [
+                            const Text('Barbearias', style: TextStyle(fontSize: 18),),
+                            ListAvailableBarberShop(
+                              controller: controller,
+                              list: controller.listBarberShop,
+                            )
+                          ],
+                        );
+                      }
+                      if(controller.state is BarberLoading){
+                        return const CircularProgressIndicator();
+                      }
+                      return Container();
+                    },
                   )
                 ],
               ),
