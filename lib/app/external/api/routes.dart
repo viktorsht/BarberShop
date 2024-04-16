@@ -16,5 +16,6 @@ class RoutesApi{
   static String refresh = '${Api.urlApi}refresh';
   static String createUser = '${Api.urlApi}auth/register';
   static String myUser = '${Api.urlApi}myUser';
+  static String cities = '${Api.urlApi}cities';
 
 }

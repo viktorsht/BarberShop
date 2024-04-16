@@ -2,14 +2,16 @@ import 'package:barber_shop/app/modules/home/presentation/controllers/home_contr
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/app_colors.dart';
+import '../../domain/entities/city.dart';
 
 class ListAvailableCities extends StatelessWidget {
-  final List<String> list; // depois tem que mudar o tipo da lista
-  const ListAvailableCities({super.key, required this.list});
+  final List<City> list; // depois tem que mudar o tipo da lista
+  final HomeController controller;
+
+  const ListAvailableCities({super.key, required this.list, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    final controller = HomeController();
     return ListenableBuilder(
       listenable: controller,
       builder: (context, child) => SizedBox(
@@ -33,7 +35,7 @@ class ListAvailableCities extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      list[index], 
+                      list[index].name!, 
                       maxLines: 2,
                       style: TextStyle(
                         color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText, 

@@ -8,12 +8,12 @@ import '../../../../utils/constants/app_colors.dart';
 
 class ListAvailableBarberShop extends StatelessWidget {
   final List<String> list;
+  final HomeController controller;
 
-  const ListAvailableBarberShop({super.key, required this.list});
+  const ListAvailableBarberShop({super.key, required this.list, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    final controller = HomeController();
 
     return SizedBox(
       height: 100, // Ajuste a altura conforme necessário

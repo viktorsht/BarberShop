@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                                   if(valid){
                                     await widget.controller.login(entity);
                                     if(widget.controller.state is LoginSucess){
-                                      Modular.to.navigate(AppRoutes.homeModule);
+                                      Modular.to.navigate(AppRoutes.navigationModule);
                                     }
                                     if(widget.controller.state is LoginError){
                                       showSnackBar('Email ou senha incorretos');
