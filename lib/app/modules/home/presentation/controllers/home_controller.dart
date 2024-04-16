@@ -61,11 +61,9 @@ class HomeController extends ChangeNotifier{
   Future<void> getBarberShop() async{
     setState(BarberLoading());
     try {
-      print(citySelect);
       final list = citySelect != -1 
         ? await homeRepository.getBarberShop(citySelect) 
         : await homeRepository.getBarberShop();
-      print(list);
       setListBarberShop(list);
       setState(BarberSucess());
     } catch (e) {

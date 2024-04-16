@@ -25,7 +25,7 @@ class HomeDatasourceImpl implements HomeDatasource{
 
   @override
   Future<List<Barber>> getBarberShop(String token, [int? id]) async {
-    final url = id != null ? RoutesApi.branchesForCity + id.toString() : RoutesApi.barbers;
+    final url = id != null ? RoutesApi.branchesForCity + id.toString() : RoutesApi.branches;
     final response = await service.get(url, headers.headersToken(token));
     final json = jsonDecode(response.body) as List;
     return json.map((e) => Barber.fromJson(e)).toList();

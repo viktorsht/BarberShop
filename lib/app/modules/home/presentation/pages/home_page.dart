@@ -74,6 +74,7 @@ class HomePage extends StatelessWidget {
                     builder: (context, child) {
                       if(controller.state is BarberSucess){
                         return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text('Barbearias', style: TextStyle(fontSize: 18),),
                             ListAvailableBarberShop(
@@ -84,7 +85,7 @@ class HomePage extends StatelessWidget {
                         );
                       }
                       if(controller.state is BarberLoading){
-                        return const CircularProgressIndicator();
+                        return const Center(child: CircularProgressIndicator());
                       }
                       return Container();
                     },
