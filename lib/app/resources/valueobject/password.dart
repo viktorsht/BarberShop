@@ -15,8 +15,8 @@ class Password implements ValueObject {
       return 'Precisa 8 caracteres com letras e números';
     }
 
-    if (!_value.contains(RegExp(r'^[a-zA-Z]+$'))) {
-      return 'Falta uma letra';
+    if (!_value.contains(RegExp(r'[A-Z]'))) {
+      return 'Falta uma letra maiúscula';
     }
 
     if (!_value.contains(RegExp(r'[0-9]'))) {

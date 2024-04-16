@@ -15,24 +15,28 @@ class LoginController extends ChangeNotifier{
 
   LoginState state = LoginInitial();
 
+  void setState(LoginState value){
+    state = value;
+    notifyListeners();
+  }
+
   Future<void> login(Login entity) async {
-    state = LoginLoading();
+    setState(LoginLoading());
     notifyListeners();
     try{
-      final data = await authRepository.login(entity);
-      if(data.access == null || data.refresh == null){
-        state = LoginError(error: 'Erro no login');
+      final token = await authRepository.login(entity);
+      if(token.access == null){
+        setState(LoginError());
         notifyListeners();
       }
       else{
-        state = LoginSucess(data: data);
-        tokenRepository.saveToken(data.access.toString());
-        tokenRepository.saveRefreshToken(data.refresh.toString());
+        setState(LoginSucess());
+        tokenRepository.saveToken(token.access.toString());
         notifyListeners();
       }
     }
     catch (e){
-      state = LoginError(error: e.toString());
+      setState(LoginError());
       notifyListeners();
     }
   }

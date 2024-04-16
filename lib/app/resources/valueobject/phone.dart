@@ -11,7 +11,7 @@ class Phone implements ValueObject {
   String? validator() {
     if (_value.isEmpty) {
       return 'Telefone não definido';
-    } else if (_value.length != 11) {
+    } else if (_value.length != 13) {
       return 'Telefone inválido';
     }
     return null;

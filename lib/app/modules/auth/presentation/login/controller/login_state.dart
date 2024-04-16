@@ -1,21 +1,10 @@
-import '../../../domain/entities/token.dart';
 
 abstract class LoginState {}
 
 final class LoginInitial extends LoginState {}
 
-class LoginError extends LoginState {
-  final String error;
+class LoginError extends LoginState {}
 
-  LoginError({required this.error});
-}
+class LoginSucess extends LoginState {}
 
-class LoginSucess extends LoginState {
-  final Token data;
-
-  LoginSucess({required this.data});
-}
-
-class LoginLoading extends LoginState {
-  LoginLoading();
-}
+class LoginLoading extends LoginState {}
