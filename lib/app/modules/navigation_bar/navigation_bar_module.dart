@@ -6,10 +6,6 @@ import 'package:barber_shop/app/modules/home/presentation/controllers/home_contr
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../configs/routes/app_routes.dart';
-import '../home/data/datasources/home_datasource.dart';
-import '../home/data/datasources/impl/home_datasource_impl.dart';
-import '../home/data/repositories/home_repository_impl.dart';
-import '../home/domain/repositories/home_repository.dart';
 import 'presentation/pages/navigation_bar_page.dart';
 
 class NavigationBarModule extends Module{
@@ -20,13 +16,6 @@ class NavigationBarModule extends Module{
     AuthModule(), 
     HomeModule()
   ];
-
-  @override
-  void binds(Injector i) {
-    i.add<HomeDatasource>(HomeDatasourceImpl.new);
-    i.add<HomeRepository>(HomeRepositoryImpl.new);
-    i.add<HomeController>(HomeController.new);
-  }
   
   @override
   void routes(r) {

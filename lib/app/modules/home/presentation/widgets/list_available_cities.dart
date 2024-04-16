@@ -23,14 +23,15 @@ class ListAvailableCities extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: GestureDetector(
-                onTap: (){
-                  controller.selectCity(index);
+                onTap: () async {
+                  controller.selectCity(list[index].id!);
+                  await controller.getBarberShop();
                 },
                 child: Container(
                   width: 100,
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: controller.citySelect == index ? AppColors.buttonColor : AppColors.background, 
+                    color: controller.citySelect == list[index].id ? AppColors.buttonColor : AppColors.background, 
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Center(
@@ -38,7 +39,7 @@ class ListAvailableCities extends StatelessWidget {
                       list[index].name!, 
                       maxLines: 2,
                       style: TextStyle(
-                        color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText, 
+                        color: controller.citySelect == list[index].id ? AppColors.secundaryColorText : AppColors.primaryColorText, 
                         fontSize: 14,
                         overflow: TextOverflow.ellipsis
                       ),

@@ -26,6 +26,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
 
   Future<void> initPage() async { 
     await widget.homeController.getCity();
+    await widget.homeController.getBarberShop();
     await widget.profileController.profile();
     Future.delayed(
       const Duration(seconds: 2),
