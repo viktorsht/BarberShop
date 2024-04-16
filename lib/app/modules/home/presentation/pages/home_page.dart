@@ -8,6 +8,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../configs/routes/app_routes.dart';
 import '../../../../utils/constants/app_ads.dart';
 import '../../../../utils/date/date_format_converter.dart';
+import '../widgets/list_available_barber_shops.dart';
 import '../widgets/list_available_cities.dart';
 
 
@@ -64,11 +65,14 @@ class HomePage extends StatelessWidget {
                   const Text('Cidades', style: TextStyle(fontSize: 18),),
                   ListAvailableCities(
                     controller: controller,
-                    list: controller.list
+                    list: controller.listCities
                   ),
                   const SizedBox(height: 16,),
                   const Text('Barbearias', style: TextStyle(fontSize: 18),),
-                  //const ListAvailableBarberShop(list: ['Barber shop', "Barbearia visual", "Zé bola",'barber shop', "barbearia visual", "zé bola", ],)
+                  ListAvailableBarberShop(
+                    controller: controller,
+                    list: controller.listBarberShop,
+                  )
                 ],
               ),
             ),

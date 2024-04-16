@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../resources/execptions/unauthorized_exception.dart';
 import '../../../auth/domain/states/logged_state.dart';
+import '../../domain/entities/barber.dart';
 import '../../domain/entities/city.dart';
 import '../../domain/repositories/home_repository.dart';
 import '../states/states_cities.dart';
@@ -32,10 +33,16 @@ class HomeController extends ChangeNotifier{
     notifyListeners();
   }
 
-  List<City> list = [];
+  List<City> listCities = [];
+  List<Barber> listBarberShop = [];
 
-  void setList(value){
-    list = value;
+  void setListCities(value){
+    listCities = value;
+    notifyListeners();
+  }
+
+  void setListBarberShop(value){
+    listBarberShop = value;
     notifyListeners();
   }
 
@@ -44,7 +51,18 @@ class HomeController extends ChangeNotifier{
     setState(CitiesLoading());
     try {
       final list = await homeRepository.getCity();
-      setList(list);
+      setListCities(list);
+      setState(CitiesSucess());
+    } catch (e) {
+      e is UnauthorizedException ? setState(NotLoggedIn()) : setState(CitiesError());
+    }
+  }
+
+  Future<void> getBarberShop() async{
+    setState(CitiesLoading());
+    try {
+      final list = await homeRepository.getBarberShop(citySelect);
+      setListBarberShop(list);
       setState(CitiesSucess());
     } catch (e) {
       e is UnauthorizedException ? setState(NotLoggedIn()) : setState(CitiesError());

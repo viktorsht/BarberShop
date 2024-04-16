@@ -1,3 +1,4 @@
+import 'package:barber_shop/app/modules/home/domain/entities/barber.dart';
 import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import '../../../../configs/routes/app_routes.dart';
 import '../../../../utils/constants/app_colors.dart';
 
 class ListAvailableBarberShop extends StatelessWidget {
-  final List<String> list;
+  final List<Barber> list;
   final HomeController controller;
 
   const ListAvailableBarberShop({super.key, required this.list, required this.controller});
@@ -38,7 +39,7 @@ class ListAvailableBarberShop extends StatelessWidget {
                       AppImages.imageBarberShopExemploLink,
                       errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
                           return Text(
-                            list[index].substring(0, 1), // Apenas a primeira letra do nome como avatar
+                            list[index].barbershop!.name!.substring(0, 1), // Apenas a primeira letra do nome como avatar
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText,
@@ -61,7 +62,7 @@ class ListAvailableBarberShop extends StatelessWidget {
                   SizedBox(
                     width: 60, // Defina a largura do texto conforme necessário
                     child: Text(
-                      list[index],
+                      list[index].barbershop!.name!,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       textAlign: TextAlign.center,
