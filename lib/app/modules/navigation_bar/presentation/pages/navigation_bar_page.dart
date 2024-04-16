@@ -1,3 +1,4 @@
+import 'package:barber_shop/app/modules/auth/presentation/profile/controller/profile_state.dart';
 import 'package:barber_shop/app/modules/home/presentation/pages/home_page.dart';
 import 'package:barber_shop/app/modules/home/presentation/states/states_cities.dart';
 import 'package:flutter/material.dart';
@@ -76,9 +77,10 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
                 child: ListenableBuilder(
                   listenable: widget.profileController,
                   builder: (context, child) {
-                    return ProfilePage(
-                      controller: widget.profileController,
-                    );
+                    if(widget.homeController.state is ProfileSucess){
+                      return ProfilePage(controller: widget.profileController);
+                    }
+                    return const Center(child: CircularProgressIndicator());
                   }
                 )
               ),
