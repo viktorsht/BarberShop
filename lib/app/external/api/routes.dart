@@ -17,5 +17,7 @@ class RoutesApi{
   static String createUser = '${Api.urlApi}auth/register';
   static String myUser = '${Api.urlApi}myUser';
   static String cities = '${Api.urlApi}cities';
+  static String branches = '${Api.urlApi}branches';
+  static String branchesForCity = '${Api.urlApi}branches?filter=city.id:=:';
 
 }

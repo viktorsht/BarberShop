@@ -1,5 +1,6 @@
 
 import 'package:barber_shop/app/modules/home/data/datasources/home_datasource.dart';
+import 'package:barber_shop/app/modules/home/domain/entities/barber.dart';
 import 'package:barber_shop/app/modules/home/domain/entities/city.dart';
 
 import '../../../../resources/execptions/unauthorized_exception.dart';
@@ -22,8 +23,21 @@ class HomeRepositoryImpl implements HomeRepository{
         throw UnauthorizedException('Não logado');
       }
       final cities = await homeDatasource.getCity(token);
-      print(cities);
       return cities;
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  Future<List<Barber>> getBarberShop(int id) async {
+    try {
+      String? token = await tokenRepository.getToken();
+      if(token == null){
+        throw UnauthorizedException('Não logado');
+      }
+      final barbers = await homeDatasource.getBarberShop(token, id);
+      return barbers;
     } catch (e) {
       throw Exception(e);
     }

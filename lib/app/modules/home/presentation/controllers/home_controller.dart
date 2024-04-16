@@ -44,7 +44,6 @@ class HomeController extends ChangeNotifier{
     setState(CitiesLoading());
     try {
       final list = await homeRepository.getCity();
-      print(list);
       setList(list);
       setState(CitiesSucess());
     } catch (e) {
