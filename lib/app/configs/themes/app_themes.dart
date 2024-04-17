@@ -11,8 +11,8 @@ class AppThemes {
       onBackground: AppColorsLith.buttonColor,
       error: AppColorsLith.errorColor,
       onPrimary: AppColorsLith.primaryColorText,
-      onSecondary: AppColorsLith.secundaryColorText,
-      secondaryContainer: AppColorsLith.sucessColor
+      onSecondary: AppColorsLith.secondaryColorText,
+      secondaryContainer: AppColorsLith.successColor
     )
   );
   static ThemeData darkTheme = ThemeData.dark(useMaterial3: true).copyWith(

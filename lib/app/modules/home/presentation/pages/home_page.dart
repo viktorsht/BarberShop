@@ -39,13 +39,12 @@ class HomePage extends StatelessWidget {
             onPressed: () => Modular.to.pushNamed("${AppRoutes.homeModule}${AppRoutes.about}"),
             icon: const Icon(Icons.info_outline)
           ),
-          
           IconButton(
-                onPressed: () {
-                  Provider.of<ThemeController>(context, listen: false).toggleTheme();
-                },
-                icon: const Icon(Icons.brightness_6)
-              ),
+            onPressed: () {
+              Provider.of<ThemeController>(context, listen: false).toggleTheme();
+            },
+            icon: const Icon(Icons.brightness_6)
+          ),
         ],
       ),
       body: ListenableBuilder(
@@ -92,7 +91,11 @@ class HomePage extends StatelessWidget {
                         );
                       }
                       if(controller.state is BarberLoading){
-                        return const Center(child: CircularProgressIndicator());
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Theme.of(context).colorScheme.onBackground,
+                          )
+                        );
                       }
                       return Container();
                     },
