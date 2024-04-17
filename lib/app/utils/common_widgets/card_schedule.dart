@@ -1,9 +1,6 @@
 import 'package:barber_shop/app/modules/navigation_bar/presentation/widgets/date_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/app_colors.dart';
-
-
 class CardSchedule extends StatelessWidget {
   final String numSchedule;
   final String service;
@@ -26,7 +23,7 @@ class CardSchedule extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      decoration: BoxDecoration(color: AppColors.background),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.background),
       padding: const EdgeInsets.all(8.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

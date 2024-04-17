@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../constants/app_colors.dart';
-
 class TextFormFieldWidget extends StatelessWidget {
   final String hint;
   final String value;
@@ -35,10 +33,10 @@ class TextFormFieldWidget extends StatelessWidget {
         validator: validator,
         inputFormatters: inputFormatter != null ? [inputFormatter!] : null,
         style: const TextStyle(fontSize: 16),
-        cursorColor: AppColors.secundaryColor,
+        cursorColor: Theme.of(context).colorScheme.secondary,
         decoration: InputDecoration(
           filled: true,
-          fillColor: AppColors.primaryColor,
+          fillColor: Theme.of(context).colorScheme.primary,
           hintText: hint,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),

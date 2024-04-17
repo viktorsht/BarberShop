@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_colors.dart';
-
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Function()? onBackPressed; // Nova função
@@ -19,24 +17,24 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         title,
         style: TextStyle(
           fontSize: 20,
-          color: AppColors.primaryColor,
+          color: Theme.of(context).colorScheme.primary,
           fontWeight: FontWeight.w500
         ),
       ),
-      backgroundColor: AppColors.secundaryColor,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       centerTitle: true,
       leading: onBackPressed != null
       ? IconButton(
           onPressed: onBackPressed, // Chame a função de navegação
           icon: Icon(
             Icons.arrow_back,
-            color: AppColors.primaryColor,
+            color: Theme.of(context).colorScheme.primary,
           ),
         )
       : null,
       elevation: 1,
       iconTheme: IconThemeData(
-        color: AppColors.primaryColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
     );
   }
