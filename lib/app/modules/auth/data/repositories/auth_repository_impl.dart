@@ -1,15 +1,9 @@
-import 'dart:convert';
-
-
 import 'package:barber_shop/app/modules/auth/data/datasources/auth_datasources.dart';
-
 import '../../../../resources/execptions/unauthorized_exception.dart';
 import '../../../../external/api/headers.dart';
-import '../../../../external/api/routes.dart';
 import '../../../../external/http/http_client.dart';
 import '../../domain/entities/create_user.dart';
 import '../../domain/entities/login.dart';
-import '../../domain/entities/refresh.dart';
 import '../../domain/entities/token.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/auth_repository.dart';
@@ -45,11 +39,9 @@ class AuthRepositoryImpl implements AuthRepository{
   }
 
   @override
-  Future<Token> refreshToken(Refresh refresh) async {
+  Future<Token> refreshToken(Token token) async {
     try {
-      final response = await service.post(RoutesApi.refresh, HeadersApi.getHeaders(), refresh.toJson());
-      final json = jsonDecode(response.body);
-      return Token.fromJson(json);
+      return await authDataSources.refreshToken(token);
     } catch (e) {
       throw Exception(e);
     }
@@ -58,8 +50,7 @@ class AuthRepositoryImpl implements AuthRepository{
   @override
   Future<User> myUser() async {
     try {
-      final user = await authDataSources.myUser();
-      return user;
+      return await authDataSources.myUser();
     } catch (e) {
       if(e is UnauthorizedException){
         rethrow;

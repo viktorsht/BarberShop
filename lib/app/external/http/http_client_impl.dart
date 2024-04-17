@@ -17,7 +17,7 @@ class ClientHttpImpl implements ClientHttp{
   }
   
   @override
-  Future<dynamic> post(String url, Map<String, String> headers, Map<String, dynamic> body) async {
+  Future<dynamic> post(String url, Map<String, String> headers, Map<String, dynamic>? body) async {
     final response = await client.post(Uri.parse(url), headers: headers, body: jsonEncode(body));
     return response;
   }

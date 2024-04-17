@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/execptions/unauthorized_exception.dart';
-import '../auth/domain/entities/refresh.dart';
+import '../auth/domain/entities/token.dart';
 import '../auth/domain/repositories/auth_repository.dart';
 import '../auth/domain/repositories/token_repository.dart';
 import '../auth/domain/states/logged_state.dart';
@@ -22,22 +22,22 @@ class SplashController extends ChangeNotifier{
 
   Future<UserAppState> isLogged() async {
     String? tokenSaved = await tokenRepository.getToken();
-    String? refreshTokenSaved = await tokenRepository.getRefreshToken();
-    if(tokenSaved == null || refreshTokenSaved == null){
+    print("Token Salvo: $tokenSaved");
+    if(tokenSaved == null){
       setState(NotLoggedIn());
       return NotLoggedIn();
     }
     try{
       final user = await authRepository.myUser();
-      if(user.id != -1){
-        final refresh = Refresh(refresh: refreshTokenSaved);
-        final token = await authRepository.refreshToken(refresh);
-        if(token.access == null || token.refresh == null){
+      print(user.id);
+      if(user.id != null){
+        final token = await authRepository.refreshToken(Token(access: tokenSaved));
+        print(token.access);
+        if(token.access == null){
           setState(NotLoggedIn());
           return NotLoggedIn();
         }
         await tokenRepository.saveToken(token.access!);
-        await tokenRepository.saveRefreshToken(token.refresh!);
         setState(LoggedIn());
         return LoggedIn();
       }
