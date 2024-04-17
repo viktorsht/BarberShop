@@ -1,9 +1,11 @@
+import 'package:barber_shop/app/configs/themes/theme_controller.dart';
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:barber_shop/app/modules/home/presentation/states/states_cities.dart';
 import 'package:barber_shop/app/utils/common_widgets/card_schedule.dart';
 import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../configs/routes/app_routes.dart';
@@ -21,6 +23,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    final themeController = ThemeController();
+
     return Scaffold(
       appBar: AppBar(
         title: Column(
@@ -36,9 +40,17 @@ class HomePage extends StatelessWidget {
             onPressed: () => Modular.to.pushNamed("${AppRoutes.homeModule}${AppRoutes.about}"),
             icon: const Icon(Icons.info_outline)
           ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.settings)
+          ListenableBuilder(
+            listenable: themeController,
+            builder: (context, snapshot) {
+              return IconButton(
+                onPressed: () {
+                  themeController.toggleTheme();
+                  print(themeController.isDarkMode);
+                },
+                icon: const Icon(Icons.settings)
+              );
+            }
           ),
         ],
       ),
