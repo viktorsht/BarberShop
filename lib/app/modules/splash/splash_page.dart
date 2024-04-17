@@ -24,7 +24,7 @@ class _SplashPageState extends State<SplashPage> {
       () async {
         final state = await widget.controller.isLogged();
         if(state is LoggedIn){
-          Modular.to.navigate(AppRoutes.homeModule);
+          Modular.to.navigate(AppRoutes.navigationModule);
         }
         if(state is NotLoggedIn){
           Modular.to.navigate(AppRoutes.authModule);

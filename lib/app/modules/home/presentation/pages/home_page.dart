@@ -15,7 +15,8 @@ import '../widgets/list_available_cities.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController controller;
-  const HomePage({super.key, required this.controller});
+  final String? name;
+  const HomePage({super.key, required this.controller, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Olá, Usuário'),
+            name == null ? const Text('Olá, Usuário') : Text('Olá, $name'),
             Text(getFormattedDateFromToday(), style: const TextStyle(fontSize: 13),),
           ],
         ),

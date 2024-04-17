@@ -24,7 +24,11 @@ class HomeModule extends Module{
 
   @override
   void routes(r) {
-    r.child(AppRoutes.root, child: (context) => HomePage(controller: Modular.get<HomeController>(),));
+    r.child(AppRoutes.root, child: (context) => HomePage(
+        controller: Modular.get<HomeController>(),
+        name: r.args.data['name']
+      )
+    );
     r.child(AppRoutes.about, child: (context) => const AboutPage());
   }
 }

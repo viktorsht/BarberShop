@@ -4,7 +4,7 @@ class Token {
   Token({this.access});
 
   Token.fromJson(Map<String, dynamic> json) {
-    access = json['access_token'];
+    access = json['access_token'] ?? json['token'];
   }
 
   Map<String, dynamic> toJson() {

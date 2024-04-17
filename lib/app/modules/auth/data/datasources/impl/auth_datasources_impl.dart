@@ -44,7 +44,6 @@ class AuthDataSourcesImpl implements AuthDataSources{
       throw UnauthorizedException('Você não está logado');
     }
     final json = jsonDecode(response.body);
-    print(json);
     return User.fromJson(json['user']);
   }
 
@@ -52,8 +51,7 @@ class AuthDataSourcesImpl implements AuthDataSources{
   Future<Token> refreshToken(Token token) async {
     final response = await service.post(RoutesApi.refresh, headers.headersToken(token.access.toString()), null);
     final json = jsonDecode(response.body);
-    print("Refresh : ${response.statusCode}");
-    return Token.fromJson(json['token']);
+    return Token.fromJson(json);
   }
   
   @override

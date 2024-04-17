@@ -30,6 +30,7 @@ class ProfileController extends ChangeNotifier{
     setState(ProfileLoading());
     try {
       final response = await authRepository.myUser();
+      print(response.firstName);
       setUser(response);
       setState(ProfileSucess());
     } catch (e) {

@@ -13,42 +13,27 @@ class SplashController extends ChangeNotifier{
 
   SplashController(this.tokenRepository, this.authRepository);
 
-  UserAppState state = NotLoggedIn();
-
-  void setState(UserAppState value) {
-    state = value;
-    notifyListeners();
-  }
-
   Future<UserAppState> isLogged() async {
     String? tokenSaved = await tokenRepository.getToken();
-    print("Token Salvo: $tokenSaved");
     if(tokenSaved == null){
-      setState(NotLoggedIn());
       return NotLoggedIn();
     }
     try{
       final user = await authRepository.myUser();
-      print(user.id);
       if(user.id != null){
         final token = await authRepository.refreshToken(Token(access: tokenSaved));
-        print(token.access);
         if(token.access == null){
-          setState(NotLoggedIn());
           return NotLoggedIn();
         }
         await tokenRepository.saveToken(token.access!);
-        setState(LoggedIn());
         return LoggedIn();
       }
       return NotLoggedIn();
     }
     catch (e){
       if(e is UnauthorizedException){
-        setState(NotLoggedIn());
         return NotLoggedIn();
       }
-      setState(NotConnectIn());
     }
     return NotConnectIn();
   }
