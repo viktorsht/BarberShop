@@ -68,8 +68,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
               ),
               Skeletonizer(enabled: loading, child: const MySchedulePage()),
               Skeletonizer(
-                enabled: loading, 
-                child: ListenableBuilder(
+                enabled: loading, child: ListenableBuilder(
                   listenable: widget.profileController,
                   builder: (context, child) {
                     return ProfilePage(controller: widget.profileController);

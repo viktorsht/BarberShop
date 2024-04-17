@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../utils/common_widgets/error_retry_widget.dart';
 import '../../../../../utils/constants/app_colors.dart';
+import '../../../../../utils/maskeds/phone_input_formatter.dart';
 import '../../../domain/states/logged_state.dart';
 import '../controller/profile_controller.dart';
 import '../controller/profile_state.dart';
@@ -20,7 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     super.initState();
-    widget.controller.profile();
+    //widget.controller.profile();
   }
 
 
@@ -66,9 +67,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     initialValue: widget.controller.user.lastName.toString()
                   ),
                   const SizedBox(height: 8,),
+                  const Text('Telefone'),
+                  TextFormField(
+                    initialValue: widget.controller.user.phone.toString(),
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [PhoneMaskedInputFormatter(mask: '(##)#########')],
+                  ),
+                  const SizedBox(height: 8,),
                   const Text('Email'),
                   TextFormField(
-                    initialValue: widget.controller.user.email.toString()
+                    initialValue: widget.controller.user.email.toString(),
+                    keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(height: 16,),
                   Align(
