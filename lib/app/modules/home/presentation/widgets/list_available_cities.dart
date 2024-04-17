@@ -1,7 +1,6 @@
 import 'package:barber_shop/app/modules/home/presentation/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants/app_colors.dart';
 import '../../domain/entities/city.dart';
 
 class ListAvailableCities extends StatelessWidget {
@@ -31,7 +30,7 @@ class ListAvailableCities extends StatelessWidget {
                   width: 100,
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: controller.citySelect == list[index].id ? AppColors.buttonColor : AppColors.background, 
+                    color: controller.citySelect == list[index].id ? Theme.of(context).colorScheme.onBackground : Theme.of(context).colorScheme.background, 
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Center(
@@ -39,7 +38,7 @@ class ListAvailableCities extends StatelessWidget {
                       list[index].name!, 
                       maxLines: 2,
                       style: TextStyle(
-                        color: controller.citySelect == list[index].id ? AppColors.secundaryColorText : AppColors.primaryColorText, 
+                        color: controller.citySelect == list[index].id ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.onPrimary, 
                         fontSize: 15,
                         overflow: TextOverflow.ellipsis
                       ),

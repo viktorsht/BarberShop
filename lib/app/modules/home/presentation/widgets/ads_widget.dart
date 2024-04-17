@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:barber_shop/app/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AdsWidget extends StatefulWidget {
@@ -72,7 +71,7 @@ class _AdsWidgetState extends State<AdsWidget> {
               height: 8,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _currentPage == index ? AppColors.buttonColor : Colors.grey,
+                color: _currentPage == index ? Theme.of(context).colorScheme.onBackground : Colors.grey,
               ),
             ),
           ),

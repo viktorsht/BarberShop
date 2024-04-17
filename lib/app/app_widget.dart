@@ -1,6 +1,9 @@
 import 'package:barber_shop/app/configs/themes/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:provider/provider.dart';
+
+import 'configs/themes/app_themes.dart';
 
 
 class AppWidget extends StatelessWidget{
@@ -8,17 +11,17 @@ class AppWidget extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    final controller = ThemeController();
-    return ListenableBuilder(
-      listenable: controller,
-      builder: (context, snapshot) {
-        return MaterialApp.router(
-          debugShowCheckedModeBanner: false,
-          routerConfig: Modular.routerConfig,
-          theme: controller.isDarkMode ? ThemeData.dark() : ThemeData.light(),
-        );
-      }
+    return ChangeNotifierProvider(
+      create: (context) => ThemeController(),
+      child: Consumer<ThemeController>(
+        builder: (context, controller, child) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: Modular.routerConfig,
+            theme: controller.isDarkMode ? AppThemes.darkTheme : AppThemes.lightTheme,
+          );
+        }
+      )
     );
   }
-
 }

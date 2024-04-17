@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../utils/common_widgets/card_schedule.dart';
-import '../../../../utils/constants/app_colors.dart';
 
 class ConfirmModal extends StatelessWidget {
   final String title;
@@ -34,7 +33,7 @@ class ConfirmModal extends StatelessWidget {
               ),
               IconButton(
                 visualDensity: VisualDensity.compact,
-                icon: Icon(Icons.close, color: AppColors.errorColor,),
+                icon: Icon(Icons.close, color: Theme.of(context).colorScheme.error,),
                 onPressed: () {
                   Navigator.of(context).pop(); // Fecha o modal
                 },
@@ -57,13 +56,13 @@ class ConfirmModal extends StatelessWidget {
             alignment: Alignment.center,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.buttonColor,
+                backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)
                 ),
               ),
               onPressed: onConfirm,
-              child: Text('Confirmar Agendamento', style: TextStyle(color: AppColors.secundaryColorText),),
+              child: Text('Confirmar Agendamento', style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),),
             ),
           ),
         ],

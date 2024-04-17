@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../configs/routes/app_routes.dart';
-import '../../utils/constants/app_colors.dart';
 import '../../utils/constants/app_images.dart';
 import '../auth/domain/states/logged_state.dart';
 import 'splash_controller.dart';
@@ -42,7 +41,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(child: Image.asset(AppImages.logo)),
     );
   }

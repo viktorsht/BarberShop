@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants/app_colors.dart';
 import '../controllers/schedule_controllers.dart';
 import 'confirm_modal.dart';
 
@@ -42,14 +41,14 @@ class ListHoursAvailablesWidget extends StatelessWidget {
                 child: Container(
                   width: 100,
                   decoration: BoxDecoration(
-                    color: controller.hourSelect == index ? AppColors.buttonColor : AppColors.background, 
+                    color: controller.hourSelect == index ? Theme.of(context).colorScheme.secondaryContainer : Theme.of(context).colorScheme.background, 
                     borderRadius: BorderRadius.circular(10)
                   ),
                   child: Center(
                     child: Text(
                       list[index], 
                       style: TextStyle(
-                        color: controller.hourSelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText, 
+                        color: controller.hourSelect == index ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.onPrimary, 
                         fontSize: 14
                       ),
                     ),

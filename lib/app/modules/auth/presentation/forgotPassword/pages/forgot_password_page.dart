@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../utils/constants/app_colors.dart';
 import '../controllers/forgot_password_controller.dart';
 import '../controllers/forgot_password_state.dart';
 
@@ -22,7 +21,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final snackBar = SnackBar(
       content: Text(message),
       duration: const Duration(seconds: 3),
-      backgroundColor: AppColors.errorColor,
+      backgroundColor: Theme.of(context).colorScheme.error,
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
@@ -80,14 +79,14 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         }
                       }, 
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.buttonColor,
+                        backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                         )
                       ),
                       child: widget.controller.state is ForgotLoading 
-                      ? CircularProgressIndicator(color: AppColors.primaryColor,) 
-                      : Text("Redefinir senha", style: TextStyle(color: AppColors.primaryColor, fontSize: 16),),
+                      ? CircularProgressIndicator(color: Theme.of(context).colorScheme.primary,) 
+                      : Text("Redefinir senha", style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 16),),
                     ),
                   );
                 }

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../configs/routes/app_routes.dart';
-import '../../../../utils/constants/app_colors.dart';
 
 class ListAvailableBarberShop extends StatelessWidget {
   final List<Barber> list;
@@ -32,7 +31,7 @@ class ListAvailableBarberShop extends StatelessWidget {
               child: Column(
                 children: [
                   CircleAvatar(
-                    backgroundColor: controller.citySelect == index ? AppColors.buttonColor : AppColors.background,
+                    backgroundColor: controller.citySelect == index ? Theme.of(context).colorScheme.secondaryContainer : Theme.of(context).colorScheme.background,
                     radius: 30,
                     child:ClipOval(
                       child: Image.network(
@@ -42,7 +41,7 @@ class ListAvailableBarberShop extends StatelessWidget {
                             list[index].barbershop!.name!.substring(0, 1), // Apenas a primeira letra do nome como avatar
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText,
+                              color: controller.citySelect == index ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.onPrimary,
                               fontSize: 24,
                             ),
                           );
@@ -59,7 +58,7 @@ class ListAvailableBarberShop extends StatelessWidget {
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: controller.citySelect == index ? AppColors.secundaryColorText : AppColors.primaryColorText,
+                        color: controller.citySelect == index ? Theme.of(context).colorScheme.onSecondary : Theme.of(context).colorScheme.onPrimary,
                         fontSize: 14,
                       ),
                     ),

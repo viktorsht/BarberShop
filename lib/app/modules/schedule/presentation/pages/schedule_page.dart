@@ -2,7 +2,6 @@ import 'package:barber_shop/app/modules/schedule/presentation/controllers/schedu
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants/app_colors.dart';
 import '../../../../utils/constants/constants.dart';
 import '../widgets/list_barbers_man.dart';
 import '../widgets/list_hours_avaliables_widget.dart';
@@ -41,7 +40,7 @@ class _SchedulePageState extends State<SchedulePage> {
                   dayProps: const EasyDayProps(
                     dayStructure: DayStructure.dayNumDayStr,
                   ),
-                  activeColor: AppColors.buttonColor,
+                  activeColor: Theme.of(context).colorScheme.secondaryContainer,
                   onDateChange: (selectedDate){
                     if(selectedDate.weekday != 7){ // lógica de negócio que deveria estar em outro lugar
                       setState(() {

@@ -1,4 +1,3 @@
-import 'package:barber_shop/app/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorWidget extends StatelessWidget {
@@ -12,13 +11,13 @@ class NavigatorWidget extends StatelessWidget {
       listenable: controller,
       builder: (context, child) => Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: AppColors.background
+          canvasColor: Theme.of(context).colorScheme.background
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: controller.page?.round() ?? 0,
           onTap: (index) => controller.jumpToPage(index),
-          selectedItemColor: AppColors.buttonColor,
+          selectedItemColor: Theme.of(context).colorScheme.secondaryContainer,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
             BottomNavigationBarItem(icon: Icon(Icons.schedule),label: 'Minha Agenda'),

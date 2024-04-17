@@ -1,7 +1,6 @@
 import 'package:barber_shop/app/modules/schedule/presentation/controllers/schedule_controllers.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants/app_colors.dart';
 
 class ListBarbersMan extends StatelessWidget {
   final List<String> list;
@@ -17,7 +16,7 @@ class ListBarbersMan extends StatelessWidget {
       builder: (context, child) {
         return SizedBox(
           height: 100, // Ajuste a altura conforme necessário
-          //color: controller.barberMan == index ? AppColors.buttonColor : AppColors.background,,
+          //color: controller.barberMan == index ? Theme.of(context).colorScheme.secondaryContainer : Theme.of(context).colorScheme.background,,
           child: ListView.builder(
             itemCount: list.length,
             scrollDirection: Axis.horizontal,
@@ -36,12 +35,12 @@ class ListBarbersMan extends StatelessWidget {
                         padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: controller.barberMan == index ? AppColors.buttonColor : AppColors.background,
+                          color: controller.barberMan == index ? Theme.of(context).colorScheme.secondaryContainer : Theme.of(context).colorScheme.background,
                         ),
                         child: CircleAvatar(
-                          backgroundColor: AppColors.background,
+                          backgroundColor: Theme.of(context).colorScheme.background,
                           radius: 30,
-                          child: Icon(Icons.person, color: AppColors.secundaryColor,)
+                          child: Icon(Icons.person, color: Theme.of(context).colorScheme.secondary,)
                         ),
                       ),
                       const SizedBox(height: 4), // Espaçamento entre o avatar e o texto
@@ -51,7 +50,7 @@ class ListBarbersMan extends StatelessWidget {
                         maxLines: 2,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: controller.barberMan == index ? AppColors.buttonColor : AppColors.primaryColorText,
+                          color: controller.barberMan == index ? Theme.of(context).colorScheme.secondaryContainer : Theme.of(context).colorScheme.onPrimary,
                           fontSize: 14,
                         ),
                       ),

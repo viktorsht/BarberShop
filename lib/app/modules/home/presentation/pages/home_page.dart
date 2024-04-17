@@ -5,8 +5,8 @@ import 'package:barber_shop/app/utils/common_widgets/card_schedule.dart';
 import 'package:barber_shop/app/utils/constants/app_images.dart';
 import 'package:barber_shop/app/modules/home/presentation/widgets/ads_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../configs/routes/app_routes.dart';
 import '../../../../utils/constants/app_ads.dart';
@@ -23,9 +23,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final themeController = ThemeController();
-
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.primary,
       appBar: AppBar(
         title: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -40,18 +39,13 @@ class HomePage extends StatelessWidget {
             onPressed: () => Modular.to.pushNamed("${AppRoutes.homeModule}${AppRoutes.about}"),
             icon: const Icon(Icons.info_outline)
           ),
-          ListenableBuilder(
-            listenable: themeController,
-            builder: (context, snapshot) {
-              return IconButton(
+          
+          IconButton(
                 onPressed: () {
-                  themeController.toggleTheme();
-                  print(themeController.isDarkMode);
+                  Provider.of<ThemeController>(context, listen: false).toggleTheme();
                 },
-                icon: const Icon(Icons.settings)
-              );
-            }
-          ),
+                icon: const Icon(Icons.brightness_6)
+              ),
         ],
       ),
       body: ListenableBuilder(

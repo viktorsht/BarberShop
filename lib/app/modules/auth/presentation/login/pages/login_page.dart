@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../configs/routes/app_routes.dart';
 import '../../../../../utils/common_widgets/text_form_field_widget.dart';
-import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/constants/app_images.dart';
 import '../../../../../resources/valueobject/email.dart';
 import '../../../../../resources/valueobject/password.dart';
@@ -38,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
     final snackBar = SnackBar(
       content: Text(message),
       duration: const Duration(seconds: 3),
-      backgroundColor: AppColors.errorColor,
+      backgroundColor: Theme.of(context).colorScheme.error,
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
@@ -66,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Column(
@@ -103,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: Text("Esqueceu sua senha?", style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.secundaryColor
+                                color: Theme.of(context).colorScheme.secondary
                               ),
                             ),
                           ),
@@ -131,14 +130,14 @@ class _LoginPageState extends State<LoginPage> {
                                   }
                                 }, 
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.buttonColor,
+                                  backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                   )
                                 ),
                                 child: widget.controller.state is LoginLoading 
-                                ? CircularProgressIndicator(color: AppColors.primaryColor,) 
-                                : Text("Entrar", style: TextStyle(color: AppColors.primaryColor, fontSize: 16),),
+                                ? CircularProgressIndicator(color: Theme.of(context).colorScheme.primary,) 
+                                : Text("Entrar", style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 16),),
                               ),
                             );
                           }
@@ -152,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.secundaryColor
+                                color: Theme.of(context).colorScheme.secondary
                               ),
                             ),
                           ),

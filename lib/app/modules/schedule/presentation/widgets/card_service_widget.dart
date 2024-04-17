@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../configs/routes/app_routes.dart';
-import '../../../../utils/constants/app_colors.dart';
 
 class CardServiceWidget extends StatelessWidget {
   final String service;
@@ -22,7 +21,7 @@ class CardServiceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      decoration: BoxDecoration(color: AppColors.background),
+      decoration: BoxDecoration(color: Theme.of(context).colorScheme.background),
       padding: const EdgeInsets.all(8.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +58,7 @@ class CardServiceWidget extends StatelessWidget {
           Center(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.buttonColor,
+                backgroundColor: Theme.of(context).colorScheme.onBackground,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)
                 )
@@ -67,7 +66,7 @@ class CardServiceWidget extends StatelessWidget {
               onPressed: (){
                 Modular.to.pushNamed("${AppRoutes.scheduleModule}${AppRoutes.schedule}");
               }, 
-              child: Text("Agendar", style: TextStyle(color: AppColors.secundaryColorText),)
+              child: Text("Agendar", style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),)
             ),
           ),
         ],

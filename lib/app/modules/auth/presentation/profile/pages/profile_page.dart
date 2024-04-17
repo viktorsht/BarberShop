@@ -2,7 +2,6 @@ import 'package:barber_shop/app/configs/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../utils/common_widgets/error_retry_widget.dart';
-import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/maskeds/phone_input_formatter.dart';
 import '../../../domain/states/logged_state.dart';
 import '../controller/profile_controller.dart';
@@ -49,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
             );
           }
           if(widget.controller.state is ProfileLoading){
-            return Center(child: CircularProgressIndicator(color: AppColors.secundaryColor));
+            return Center(child: CircularProgressIndicator(color: Theme.of(context).colorScheme.secondary));
           }
           return SingleChildScrollView(
             child: Padding(
@@ -84,13 +83,13 @@ class _ProfilePageState extends State<ProfilePage> {
                     alignment: Alignment.center,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.buttonColor,
+                        backgroundColor: Theme.of(context).colorScheme.onBackground,
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8))
                         )
                       ),
                       onPressed: (){}, 
-                      child: Text("Atualizar", style: TextStyle(color: AppColors.secundaryColorText),)
+                      child: Text("Atualizar", style: TextStyle(color: Theme.of(context).colorScheme.onSecondary),)
                     ),
                   ),
                 ],

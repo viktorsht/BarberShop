@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../../configs/routes/app_routes.dart';
 import '../../../../../resources/valueobject/phone.dart';
 import '../../../../../utils/common_widgets/text_form_field_widget.dart';
-import '../../../../../utils/constants/app_colors.dart';
 import '../../../../../utils/constants/app_images.dart';
 import '../../../../../resources/valueobject/email.dart';
 import '../../../../../resources/valueobject/name.dart';
@@ -78,7 +77,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
                   child: Container(
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: AppColors.primaryColor,
+                      color: Theme.of(context).colorScheme.primary,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     child: Column(
@@ -173,34 +172,34 @@ class _CreateUserPageState extends State<CreateUserPage> {
                             return FractionallySizedBox(
                               widthFactor: 0.4,
                               child: ElevatedButton(
-                                onPressed: () async {
+                                onPressed: () {
                                   final valid = form.validate();
                                   if(valid){
-                                    await widget.controller.createUser(entity);
+                                    widget.controller.createUser(entity);
                                     if(widget.controller.state is CreateUserSucess){
-                                      showSnackBar('Conta criada com sucesso!', AppColors.sucessColor);
+                                      showSnackBar('Conta criada com sucesso!', Theme.of(context).colorScheme.secondaryContainer);
                                       Future.delayed(
                                         const Duration(seconds: 2),
                                         () => Modular.to.navigate(AppRoutes.authModule)
                                       );
                                     }
                                     if(widget.controller.state is CreateUserError){
-                                      showSnackBar('Erro no cadastro do usuário', AppColors.errorColor);
+                                      showSnackBar('Erro no cadastro do usuário', Theme.of(context).colorScheme.error);
                                     }
                                   }
                                   else{
-                                    showSnackBar('Fornceça os dados corretamente', AppColors.errorColor);
+                                    showSnackBar('Fornceça os dados corretamente', Theme.of(context).colorScheme.error);
                                   }
                                 }, 
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.buttonColor,
+                                  backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)
                                   )
                                 ),
                                 child: widget.controller.state is CreateUserLoading 
-                                ? CircularProgressIndicator(color: AppColors.primaryColor,) 
-                                : Text("Cadastre-se", style: TextStyle(color: AppColors.primaryColor, fontSize: 16),),
+                                ? CircularProgressIndicator(color: Theme.of(context).colorScheme.primary,) 
+                                : Text("Cadastre-se", style: TextStyle(color: Theme.of(context).colorScheme.primary, fontSize: 16),),
                               ),
                             );
                           }
@@ -214,7 +213,7 @@ class _CreateUserPageState extends State<CreateUserPage> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.secundaryColor
+                                color: Theme.of(context).colorScheme.secondary
                               ),
                             ),
                           ),
